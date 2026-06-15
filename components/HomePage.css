@@ -390,7 +390,7 @@
 }
 
 .core-mark {
-  align-items: end;
+  align-items: flex-end;
   display: inline-flex;
   gap: 7px;
   height: 42px;
@@ -556,8 +556,8 @@
 
 .advantage-panel {
   background:
-    radial-gradient(circle at 50% 4%, rgba(250, 129, 18, 0.13), transparent 32%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015)),
+    radial-gradient(circle at 50% 2%, rgba(250, 129, 18, 0.1), transparent 34%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01)),
     rgba(0, 0, 0, 0.28);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 26px;
@@ -570,7 +570,7 @@
   background: transparent;
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   display: grid;
-  grid-template-rows: minmax(190px, 0.7fr) auto;
+  grid-template-rows: minmax(220px, 0.78fr) auto;
   min-height: 520px;
   padding: 0;
   position: relative;
@@ -587,7 +587,7 @@
 
 .advantage-visual {
   border-bottom: 1px solid rgba(255, 255, 255, 0.09);
-  min-height: 210px;
+  min-height: 230px;
   overflow: hidden;
   position: relative;
 }
@@ -603,88 +603,96 @@
   position: absolute;
 }
 
+.advantage-visual::after {
+  background: linear-gradient(180deg, transparent 0%, rgba(4, 13, 20, 0.18) 100%);
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
 .advantage-visual span {
   position: absolute;
 }
 
 .advantage-card:nth-child(1) .advantage-visual span {
-  border: 1.5px dashed rgba(255, 255, 255, 0.34);
+  border: 1.5px dashed rgba(255, 255, 255, 0.42);
   border-radius: 14px;
-  box-shadow: 0 0 22px rgba(255, 255, 255, 0.04);
-  height: 52px;
-  width: 52px;
+  box-shadow: 0 0 28px rgba(255, 255, 255, 0.06);
+  height: 58px;
+  width: 58px;
 }
 
 .advantage-card:nth-child(1) .advantage-visual span:nth-child(1) {
-  left: 16%;
-  top: 28%;
+  left: 17%;
+  top: 24%;
 }
 
 .advantage-card:nth-child(1) .advantage-visual span:nth-child(2) {
-  left: 30%;
-  top: 28%;
+  left: 31%;
+  top: 24%;
 }
 
 .advantage-card:nth-child(1) .advantage-visual span:nth-child(3) {
-  left: 23%;
-  top: 54%;
+  left: 24%;
+  top: 52%;
 }
 
 .advantage-card:nth-child(1) .advantage-visual span:nth-child(4),
 .advantage-card:nth-child(1) .advantage-visual span:nth-child(5) {
   border-style: solid;
-  border-color: rgba(255, 255, 255, 0.28);
-  height: 28px;
+  border-color: rgba(255, 255, 255, 0.34);
+  height: 32px;
   opacity: 1;
-  top: 46%;
-  width: 28px;
+  top: 44%;
+  width: 32px;
 }
 
 .advantage-card:nth-child(1) .advantage-visual span:nth-child(4) {
-  left: 58%;
+  left: 60%;
 }
 
 .advantage-card:nth-child(1) .advantage-visual span:nth-child(5) {
-  left: 70%;
+  left: 72%;
 }
 
 .advantage-card:nth-child(2) .advantage-visual span {
-  background: rgba(255, 255, 255, 0.44);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.36));
   border-radius: 10px 10px 0 0;
   bottom: 54px;
-  box-shadow: 0 18px 24px rgba(0, 0, 0, 0.28);
-  width: 42px;
+  box-shadow: 0 20px 28px rgba(0, 0, 0, 0.3);
+  width: 46px;
 }
 
 .advantage-card:nth-child(2) .advantage-visual span:nth-child(1) {
-  height: 36px;
+  height: 42px;
   left: 18%;
 }
 
 .advantage-card:nth-child(2) .advantage-visual span:nth-child(2) {
-  height: 68px;
+  height: 72px;
   left: 32%;
 }
 
 .advantage-card:nth-child(2) .advantage-visual span:nth-child(3) {
-  background: rgba(255, 255, 255, 0.86);
-  height: 128px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.72));
+  height: 142px;
   left: 46%;
 }
 
 .advantage-card:nth-child(2) .advantage-visual span:nth-child(4) {
-  height: 92px;
+  height: 104px;
   left: 60%;
 }
 
 .advantage-card:nth-child(2) .advantage-visual span:nth-child(5) {
-  height: 56px;
+  height: 66px;
   left: 74%;
 }
 
 .advantage-card:nth-child(3) .advantage-visual span {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 12px;
   color: rgba(255, 255, 255, 0.88);
   font-size: 0.76rem;
@@ -693,8 +701,8 @@
 }
 
 .advantage-card:nth-child(3) .advantage-visual span:nth-child(1) {
-  left: 14%;
-  top: 35%;
+  left: 16%;
+  top: 34%;
 }
 
 .advantage-card:nth-child(3) .advantage-visual span:nth-child(1)::after {
@@ -702,8 +710,8 @@
 }
 
 .advantage-card:nth-child(3) .advantage-visual span:nth-child(2) {
-  left: 44%;
-  top: 28%;
+  left: 47%;
+  top: 23%;
 }
 
 .advantage-card:nth-child(3) .advantage-visual span:nth-child(2)::after {
@@ -711,8 +719,8 @@
 }
 
 .advantage-card:nth-child(3) .advantage-visual span:nth-child(3) {
-  left: 32%;
-  top: 58%;
+  left: 34%;
+  top: 57%;
 }
 
 .advantage-card:nth-child(3) .advantage-visual span:nth-child(3)::after {
@@ -722,27 +730,27 @@
 .advantage-card:nth-child(3) .advantage-visual span:nth-child(4),
 .advantage-card:nth-child(3) .advantage-visual span:nth-child(5) {
   border-style: dashed;
-  height: 42px;
-  opacity: 0.7;
+  height: 46px;
+  opacity: 0.78;
   padding: 0;
-  width: 72px;
+  width: 78px;
 }
 
 .advantage-card:nth-child(3) .advantage-visual span:nth-child(4) {
   right: 12%;
-  top: 34%;
+  top: 31%;
 }
 
 .advantage-card:nth-child(3) .advantage-visual span:nth-child(5) {
   left: 12%;
-  top: 62%;
+  top: 63%;
 }
 
 .advantage-copy {
   display: grid;
   grid-template-rows: auto auto auto 1fr;
-  min-height: 310px;
-  padding: clamp(26px, 3.2vw, 42px);
+  min-height: 300px;
+  padding: clamp(26px, 3vw, 40px);
 }
 
 .advantage-index {
@@ -755,7 +763,7 @@
 
 .advantage-card h3 {
   color: white;
-  font-size: clamp(1.45rem, 2.1vw, 2.1rem);
+  font-size: clamp(1.45rem, 2vw, 2rem);
   font-weight: 650;
   letter-spacing: -0.012em;
   line-height: 1.12;
