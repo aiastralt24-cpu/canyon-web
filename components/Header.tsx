@@ -8,6 +8,7 @@ import "./Header.css";
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const primaryItems = navItems.filter((item) => item.label !== "Get in Touch");
   const menuItems = [
     { label: "Home", href: "/" },
     { label: "Solutions", href: "/solutions" },
@@ -39,46 +40,32 @@ export function Header() {
         <Logo />
 
         <nav className="desktop-nav" aria-label="Primary navigation">
-          {navItems.map((item) => (
+          {primaryItems.map((item) => (
             <div className="nav-group" key={item.label}>
               <Link className="nav-link" href={item.href}>
-                {item.label}
+                {item.label === "About Us" ? "About" : item.label}
               </Link>
-              {item.children ? (
-                <div className={`mega-menu ${item.label === "Solutions" ? "solution-menu" : ""}`}>
-                  {item.description ? (
-                    <div className="mega-intro">
-                      <strong>About Canyon Data Labs</strong>
-                      <p>{item.description}</p>
-                    </div>
-                  ) : null}
-                  <div className="mega-list">
-                    {item.children.map(([label, href, description]) => (
-                      <Link className="mega-item" href={href} key={href}>
-                        <span>{label}</span>
-                        {description ? <small>{description}</small> : null}
-                      </Link>
-                    ))}
-                    {item.label === "Solutions" ? (
-                      <Link className="mega-overview" href="/solutions">
-                        View Solutions Overview <span>→</span>
-                      </Link>
-                    ) : null}
-                  </div>
-                </div>
-              ) : null}
             </div>
           ))}
         </nav>
 
-        <Link className="btn primary header-cta" href="/contact#book-demo">
-          Book a Demo
-        </Link>
+        <div className="header-actions">
+          <Link className="btn primary header-cta" href="/contact#book-demo">
+            Book a Demo
+          </Link>
 
-        <button className="menu-toggle" type="button" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-controls="mobile-menu">
-          <span />
-          <span />
-        </button>
+          <button
+            className="menu-toggle"
+            type="button"
+            onClick={() => setOpen((value) => !value)}
+            aria-label="Open site menu"
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+          >
+            <span />
+            <span />
+          </button>
+        </div>
       </div>
 
       {open ? (
