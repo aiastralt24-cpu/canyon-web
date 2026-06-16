@@ -92,33 +92,40 @@
 .menu-toggle {
   align-items: center;
   background:
-    linear-gradient(145deg, rgba(255, 253, 247, 0.96), rgba(236, 232, 219, 0.9));
-  border: 1px solid rgba(33, 26, 18, 0.18);
-  border-radius: 22px;
+    linear-gradient(145deg, rgba(255, 253, 247, 0.96), rgba(244, 240, 229, 0.94));
+  border: 1px solid rgba(33, 26, 18, 0.14);
+  border-radius: 18px;
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.72),
-    0 14px 34px rgba(10, 13, 15, 0.12);
-  display: grid;
-  height: 54px;
+    inset 0 1px 0 rgba(255, 255, 255, 0.78),
+    0 10px 26px rgba(10, 13, 15, 0.08);
+  display: inline-flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 48px;
   justify-content: center;
-  transition: background 180ms var(--ease), border-color 180ms var(--ease), transform 180ms var(--ease);
-  width: 54px;
+  transition: background 180ms var(--ease), border-color 180ms var(--ease), box-shadow 180ms var(--ease), transform 180ms var(--ease);
+  width: 48px;
 }
 
 .menu-toggle span {
-  background: #15110d;
+  background: #22160f;
   border-radius: 999px;
   display: block;
-  height: 2px;
-  margin: 4px 0;
-  width: 24px;
+  height: 1.5px;
+  margin: 0;
+  transform-origin: center;
+  transition: transform 180ms var(--ease), width 180ms var(--ease);
+  width: 21px;
 }
 
 .menu-toggle:hover,
 .menu-toggle:focus-visible {
   background:
-    linear-gradient(145deg, rgba(255, 253, 247, 1), rgba(241, 237, 226, 0.96));
-  border-color: rgba(33, 26, 18, 0.28);
+    linear-gradient(145deg, rgba(255, 253, 247, 1), rgba(246, 242, 232, 0.98));
+  border-color: rgba(33, 26, 18, 0.24);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.82),
+    0 12px 28px rgba(10, 13, 15, 0.1);
   transform: translateY(-1px);
 }
 
@@ -150,8 +157,8 @@ body.menu-open {
     radial-gradient(circle at 96% 6%, rgba(250, 129, 18, 0.08), transparent 34%),
     linear-gradient(180deg, #fffaf0 0%, #fff8ed 48%, #fff5e8 100%);
   border: 1px solid rgba(78, 51, 33, 0.12);
-  border-bottom-right-radius: clamp(46px, 8vw, 78px);
-  border-top-right-radius: clamp(46px, 8vw, 78px);
+  border-bottom-right-radius: clamp(38px, 6.2vw, 64px);
+  border-top-right-radius: clamp(38px, 6.2vw, 64px);
   box-shadow:
     48px 0 120px rgba(0, 0, 0, 0.38),
     inset -1px 0 0 rgba(78, 51, 33, 0.08);
@@ -161,18 +168,18 @@ body.menu-open {
   height: 100dvh;
   left: 0;
   overflow-y: auto;
-  padding: clamp(28px, 4vw, 56px);
+  padding: clamp(26px, 3.2vw, 46px);
   position: absolute;
   top: 0;
   transform-origin: left center;
-  width: min(74vw, 1040px);
+  width: min(66vw, 920px);
 }
 
 .mobile-menu-top {
   align-items: center;
   display: flex;
   gap: clamp(18px, 3vw, 40px);
-  margin-bottom: clamp(52px, 7vh, 86px);
+  margin-bottom: clamp(34px, 5vh, 58px);
 }
 
 .mobile-close {
@@ -207,15 +214,15 @@ body.menu-open {
 }
 
 .mobile-menu-top .logo-link {
-  height: clamp(68px, 7vw, 92px);
+  height: clamp(58px, 6vw, 78px);
   margin-right: 0;
   overflow: visible;
-  width: min(42vw, 340px);
+  width: min(34vw, 280px);
 }
 
 .mobile-menu-top .logo-link img {
   transform: none;
-  width: min(42vw, 340px);
+  width: min(34vw, 280px);
 }
 
 .mobile-link-list {
@@ -229,12 +236,12 @@ body.menu-open {
   color: #28160e;
   display: flex;
   font-family: var(--font-sora);
-  font-size: clamp(3rem, 4.8vw, 5.2rem);
-  font-weight: 620;
+  font-size: clamp(2.35rem, 3.85vw, 4.35rem);
+  font-weight: 610;
   justify-content: space-between;
   letter-spacing: -0.018em;
   line-height: 1.05;
-  min-height: clamp(90px, 8.3vw, 128px);
+  min-height: clamp(74px, 6.8vw, 104px);
   padding: 0;
 }
 
@@ -244,7 +251,7 @@ body.menu-open {
 
 .mobile-link-list a span:last-child {
   color: #f15a24;
-  font-size: clamp(1.65rem, 2.4vw, 2.8rem);
+  font-size: clamp(1.35rem, 2vw, 2.3rem);
   font-weight: 520;
   letter-spacing: 0;
   margin-left: 20px;
@@ -289,8 +296,8 @@ body.menu-open {
   font-weight: 650;
   justify-content: space-between;
   letter-spacing: 0.14em;
-  margin-top: clamp(36px, 5vw, 70px);
-  padding: 22px clamp(22px, 3vw, 36px);
+  margin-top: clamp(26px, 4vw, 48px);
+  padding: 18px clamp(20px, 2.6vw, 30px);
   text-transform: uppercase;
 }
 
@@ -327,14 +334,13 @@ body.menu-open {
   }
 
   .menu-toggle {
-    border-radius: 18px;
-    height: 50px;
-    width: 50px;
+    border-radius: 17px;
+    height: 46px;
+    width: 46px;
   }
 
   .menu-toggle span {
-    margin: 4px 0;
-    width: 24px;
+    width: 20px;
   }
 
   .mobile-nav {

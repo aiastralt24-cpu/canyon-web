@@ -119,6 +119,12 @@
   max-width: 840px;
 }
 
+#our-approach .section-head h2 {
+  font-size: clamp(2rem, 3.15vw, 3.08rem);
+  max-width: none;
+  white-space: nowrap;
+}
+
 .page-band {
   background:
     radial-gradient(circle at 84% 12%, rgba(250, 129, 18, 0.08), transparent 28%),
@@ -715,6 +721,10 @@
 }
 
 @media (max-width: 900px) {
+  #our-approach .section-head h2 {
+    white-space: normal;
+  }
+
   .two-cards,
   .page-card-grid,
   .inner-hero-grid,
