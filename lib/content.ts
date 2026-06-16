@@ -132,18 +132,21 @@ export const differentiators = [
 
 export const advantagePillars = [
   {
-    title: "Business Alignment",
-    outcome: "Leadership priorities shape the operating model from day one.",
+    title: "Business alignment",
+    outcome:
+      "Leadership priorities shape the operating model from day one, with technology following the way the business works.",
     points: ["Business-first thinking", "Tailored operating model"]
   },
   {
-    title: "Execution Ownership",
-    outcome: "Insights move into owners, workflows, and measurable follow-through.",
+    title: "Execution ownership",
+    outcome:
+      "Insights move into owners, workflows, and measurable follow-through, keeping important work in motion beyond the dashboard.",
     points: ["One partner", "Information to impact"]
   },
   {
-    title: "Enterprise Scale",
-    outcome: "The model grows across functions while preserving clarity.",
+    title: "Enterprise scale",
+    outcome:
+      "The model grows across functions, businesses, and geographies while preserving the clarity that made it work.",
     points: ["Enterprise-wide view", "Built to evolve"]
   }
 ];

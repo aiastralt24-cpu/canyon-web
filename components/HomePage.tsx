@@ -131,28 +131,47 @@ export function HomePage() {
             {advantagePillars.map((pillar, index) => (
               <article className="advantage-card reveal" key={pillar.title}>
                 <div className="advantage-visual" aria-hidden="true">
-                  <span />
-                  <span />
-                  <span />
-                  <span />
-                  <span />
+                  {index === 0 ? (
+                    <div className="frag-kpi">
+                      <span>Priority · Margin recovery</span>
+                      <strong>+2.4 pts</strong>
+                      <em>vs plan</em>
+                      <i />
+                    </div>
+                  ) : null}
+                  {index === 1 ? (
+                    <div className="frag-own">
+                      <p>
+                        <span>NK</span>
+                        Review priced SKUs
+                        <em>Due Fri</em>
+                      </p>
+                      <p>
+                        <span>RS</span>
+                        Confirm dispatch plan
+                        <em>Done</em>
+                      </p>
+                    </div>
+                  ) : null}
+                  {index === 2 ? (
+                    <div className="frag-ent">
+                      <span>Operating view</span>
+                      <div>
+                        <em>Group</em>
+                        <em>Pipes</em>
+                        <em>Adhesives</em>
+                        <em>Paints</em>
+                      </div>
+                    </div>
+                  ) : null}
                 </div>
                 <div className="advantage-copy">
-                  <span className="advantage-index">{String(index + 1).padStart(2, "0")}</span>
                   <h3>{pillar.title}</h3>
-                  <ul>
-                    {pillar.points.map((point) => (
-                      <li key={point}>{point}</li>
-                    ))}
-                  </ul>
                   <p>{pillar.outcome}</p>
                 </div>
               </article>
             ))}
           </div>
-          <Link className="text-link why-link reveal" href="/about-us#why-canyon">
-            Why Canyon Data Labs <span>→</span>
-          </Link>
         </div>
       </section>
 
