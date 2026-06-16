@@ -44,8 +44,8 @@ export function HomePage() {
               <span className="hero-accent-line">boardroom decision.</span>
             </h1>
             <p className="lead reveal">
-              Canyon Data Labs connects business information, decision context, and accountable execution into one
-              leadership view.
+              Canyon Data Labs connects business information, decision context, and execution accountability onto a
+              common platform across the organization.
             </p>
             <div className="button-row reveal">
               <Link className="btn primary" href="/contact#book-demo">

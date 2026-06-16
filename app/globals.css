@@ -82,12 +82,12 @@ canvas {
 }
 
 .section {
-  padding: 96px 0;
+  padding: clamp(58px, 7vh, 76px) 0;
   position: relative;
 }
 
 .section.compact {
-  padding: 72px 0;
+  padding: clamp(48px, 6vh, 62px) 0;
 }
 
 .section-label {
@@ -136,8 +136,8 @@ h3 {
 
 .lead {
   color: var(--muted);
-  font-size: clamp(1.02rem, 1.45vw, 1.2rem);
-  line-height: 1.76;
+  font-size: clamp(0.98rem, 1.18vw, 1.12rem);
+  line-height: 1.58;
   max-width: 760px;
 }
 
@@ -152,7 +152,7 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
-  margin-top: 32px;
+  margin-top: 24px;
 }
 
 .btn {
