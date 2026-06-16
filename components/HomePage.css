@@ -247,7 +247,7 @@
 .operating-header {
   display: block;
   margin-bottom: clamp(30px, 4vh, 42px);
-  max-width: 760px;
+  max-width: 1060px;
 }
 
 .operating-header .section-label {
@@ -276,13 +276,14 @@
 }
 
 .operating-header h2 {
-  font-size: clamp(2.25rem, 3.8vw, 3.95rem);
+  font-size: clamp(2.2rem, 3.55vw, 3.7rem);
   font-weight: 650;
   letter-spacing: -0.01em;
   line-height: 1.05;
   margin: 0 0 14px;
-  max-width: 13.5ch;
+  max-width: none;
   text-align: left;
+  white-space: nowrap;
 }
 
 .operating-flow {
@@ -1076,6 +1077,10 @@
 
   .operating-header {
     margin-bottom: 42px;
+  }
+
+  .operating-header h2 {
+    white-space: normal;
   }
 
   .flow-canvas {
