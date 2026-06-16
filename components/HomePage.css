@@ -526,7 +526,7 @@
 
 .why-intro {
   display: block;
-  max-width: 780px;
+  max-width: 1320px;
 }
 
 .why-intro .section-label {
@@ -548,20 +548,22 @@
 
 .why-intro h2 {
   color: var(--navy);
-  font-size: clamp(2.25rem, 4vw, 3.65rem);
+  font-size: clamp(2.2rem, 3.45vw, 3.28rem);
   font-weight: 650;
   letter-spacing: -0.012em;
   line-height: 1.08;
   margin: 0 0 12px;
   max-width: none;
+  white-space: nowrap;
 }
 
 .why-intro .lead {
   color: rgba(7, 19, 28, 0.62);
-  font-size: clamp(1rem, 1.1vw, 1.14rem);
+  font-size: clamp(0.98rem, 1.02vw, 1.08rem);
   line-height: 1.55;
   margin: 0;
-  max-width: 760px;
+  max-width: 1180px;
+  white-space: nowrap;
 }
 
 .advantage-panel {
@@ -1019,10 +1021,12 @@
 
   .why-intro h2 {
     max-width: 12ch;
+    white-space: normal;
   }
 
   .why-intro .lead {
     max-width: 620px;
+    white-space: normal;
   }
 
   .advantage-panel {
