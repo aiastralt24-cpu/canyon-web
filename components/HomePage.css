@@ -799,6 +799,105 @@
   justify-self: start;
 }
 
+.audience-strip {
+  background:
+    radial-gradient(circle at 88% 8%, rgba(250, 129, 18, 0.08), transparent 28%),
+    linear-gradient(180deg, #f6f1e9 0%, #f3ece1 100%);
+  border-bottom: 1px solid rgba(222, 201, 161, 0.58);
+  color: var(--navy);
+  overflow: hidden;
+  padding: clamp(48px, 7vh, 74px) 0 clamp(42px, 6vh, 64px);
+}
+
+.audience-strip-inner {
+  display: grid;
+  gap: clamp(26px, 4vh, 42px);
+  margin: 0 auto;
+  max-width: 100vw;
+  text-align: center;
+}
+
+.audience-strip h2 {
+  color: var(--navy);
+  font-size: clamp(1.62rem, 2.1vw, 2.35rem);
+  font-weight: 620;
+  letter-spacing: -0.01em;
+  line-height: 1.12;
+  margin: 0 auto;
+  max-width: 980px;
+  padding: 0 var(--page-x);
+}
+
+.audience-rail {
+  overflow: hidden;
+  position: relative;
+}
+
+.audience-rail::before,
+.audience-rail::after {
+  content: "";
+  height: 100%;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  width: min(18vw, 260px);
+  z-index: 2;
+}
+
+.audience-rail::before {
+  background: linear-gradient(90deg, #f6f1e9 0%, rgba(246, 241, 233, 0) 100%);
+  left: 0;
+}
+
+.audience-rail::after {
+  background: linear-gradient(270deg, #f3ece1 0%, rgba(243, 236, 225, 0) 100%);
+  right: 0;
+}
+
+.audience-track {
+  animation: audienceMarquee 34s linear infinite;
+  display: flex;
+  gap: 14px;
+  width: max-content;
+  will-change: transform;
+}
+
+.audience-pill {
+  align-items: center;
+  background: rgba(255, 250, 240, 0.8);
+  border: 1px solid rgba(222, 201, 161, 0.72);
+  border-radius: 999px;
+  box-shadow: 0 16px 34px rgba(7, 19, 28, 0.045);
+  color: rgba(7, 19, 28, 0.62);
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-size: clamp(0.88rem, 0.98vw, 1.04rem);
+  font-weight: 650;
+  gap: 12px;
+  min-height: 54px;
+  padding: 0 26px;
+  white-space: nowrap;
+}
+
+.audience-pill::before {
+  background: #fa8112;
+  border-radius: 999px;
+  content: "";
+  flex: 0 0 auto;
+  height: 7px;
+  width: 7px;
+}
+
+@keyframes audienceMarquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 .final-cta {
   background:
     linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
@@ -1028,6 +1127,19 @@
     align-self: start;
   }
 
+  .audience-strip {
+    padding: 42px 0 44px;
+  }
+
+  .audience-rail::before,
+  .audience-rail::after {
+    width: 68px;
+  }
+
+  .audience-track {
+    animation-duration: 24s;
+  }
+
   .final-cta-actions {
     justify-self: start;
     width: min(100%, 280px);
@@ -1036,7 +1148,8 @@
 
 @media (prefers-reduced-motion: reduce) {
   .contour-line,
-  .flow-pulse {
+  .flow-pulse,
+  .audience-track {
     animation: none;
   }
 }

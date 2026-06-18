@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { advantagePillars } from "@/lib/content";
+import { advantagePillars, audiences } from "@/lib/content";
 import "./HomePage.css";
 
 const signalSources = ["ERP", "CRM", "Spreadsheets", "Plant & supply", "Reports"];
@@ -170,6 +170,21 @@ export function HomePage() {
                 </div>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="audience-strip" aria-label="Teams Canyon helps">
+        <div className="audience-strip-inner reveal">
+          <h2>Built for the teams that run the business.</h2>
+          <div className="audience-rail" aria-hidden="true">
+            <div className="audience-track">
+              {[...audiences, ...audiences].map((team, index) => (
+                <span className="audience-pill" key={`${team}-${index}`}>
+                  {team}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </section>
