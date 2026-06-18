@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { approach, audiences, differentiators, solutionCapabilities, solutions } from "@/lib/content";
+import { solutionCapabilities, solutions } from "@/lib/content";
 import "./InnerPages.css";
 
 type SimplePageProps = {
@@ -49,15 +49,54 @@ export function SimplePage({
 }
 
 export function AboutContent() {
+  const whatWeDo = [
+    {
+      title: "Enterprise visibility",
+      copy: "Bring trusted information into one leadership view across systems, reports, and teams.",
+      icon: "visibility"
+    },
+    {
+      title: "Decision support",
+      copy: "Shape signals into context that helps leaders choose the next move with confidence.",
+      icon: "decision"
+    },
+    {
+      title: "Execution enablement",
+      copy: "Connect insight to owners, workflows, and follow-through across the business.",
+      icon: "execution"
+    }
+  ];
+
+  const whyItems = [
+    {
+      title: "Business-first thinking",
+      copy: "Start with the leadership priority, then shape technology around the operating reality."
+    },
+    {
+      title: "Tailored to your reality",
+      copy: "Built around existing systems, team rhythms, and business goals."
+    },
+    {
+      title: "One partner, every layer",
+      copy: "Strategy, systems, context, and execution connected by one accountable team."
+    },
+    {
+      title: "From information to impact",
+      copy: "Raw signals become decisions, action, and measurable business movement."
+    },
+    {
+      title: "Built to evolve",
+      copy: "Operating systems that grow with teams, markets, and priorities."
+    }
+  ];
+
   return (
     <>
-      <section className="section page-band" id="company-overview">
-        <div className="container split-panel reveal">
-          <div>
+      <section className="about-overview-section" id="company-overview">
+        <div className="container about-overview-grid">
+          <div className="about-overview-copy reveal">
             <p className="section-label">Company Overview</p>
             <h2>Clarity built around how the business actually works.</h2>
-          </div>
-          <div className="stack-copy">
             <p>
               Canyon Data Labs works with leadership teams to connect information, context, and execution into one
               confident operating view.
@@ -67,32 +106,167 @@ export function AboutContent() {
               around the outcomes leaders want to move.
             </p>
           </div>
+          <figure className="about-strata-panel reveal" aria-label="Signals flowing into one operating view">
+            <svg viewBox="0 0 600 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <rect width="600" height="700" fill="#121a2b" />
+              <path d="M0 520 C 120 470, 240 560, 360 510 S 540 460, 600 500 L600 700 L0 700 Z" fill="#16243a" />
+              <path d="M0 560 C 140 520, 260 610, 380 560 S 560 510, 600 545 L600 700 L0 700 Z" fill="#1b3a45" />
+              <path d="M0 605 C 150 570, 280 650, 400 605 S 570 560, 600 590 L600 700 L0 700 Z" fill="#1e6e64" />
+              <path d="M0 650 C 160 620, 300 690, 420 650 S 580 615, 600 635 L600 700 L0 700 Z" fill="#2b8a7c" />
+              <g stroke="rgba(244,239,230,.14)" strokeWidth="1.2" fill="none">
+                <path d="M0 160 C 130 120, 250 200, 370 160 S 540 110, 600 150" />
+                <path d="M0 230 C 140 195, 260 270, 380 230 S 550 185, 600 220" />
+                <path d="M0 300 C 150 270, 270 340, 390 300 S 560 260, 600 290" />
+                <path d="M0 370 C 160 340, 280 410, 400 370 S 565 335, 600 360" />
+              </g>
+              <path d="M0 230 C 140 195, 260 270, 380 230 S 550 185, 600 220" stroke="#fa8112" strokeWidth="2" fill="none" />
+              <circle cx="380" cy="230" r="5" fill="#fa8112" />
+              <circle cx="380" cy="230" r="11" fill="none" stroke="#fa8112" opacity=".4" />
+            </svg>
+            <figcaption>
+              <span />
+              Signals → One Operating View
+            </figcaption>
+          </figure>
         </div>
       </section>
 
-      <section className="section compact" id="vision-mission">
-        <div className="container two-cards">
-          <article className="card feature-card reveal">
-            <p className="section-label">Mission</p>
-            <h3>Empower organizations with clarity, visibility, and confidence.</h3>
-          </article>
-          <article className="card feature-card reveal">
-            <p className="section-label">Vision</p>
-            <h3>Be the trusted partner for organizations navigating complexity.</h3>
-          </article>
+      <section className="about-statement-section" id="vision-mission">
+        <div className="container about-statement reveal">
+          <p className="section-label">Mission &amp; Vision</p>
+          <h2>
+            Empowering organizations with <em>clarity</em>, visibility, and confidence.
+          </h2>
+          <div className="about-mission-grid">
+            <article>
+              <p className="section-label">Mission</p>
+              <p>
+                Empower organizations with clarity, visibility, and confidence so every decision is grounded in how the
+                business actually performs.
+              </p>
+            </article>
+            <article>
+              <p className="section-label">Vision</p>
+              <p>
+                Be the trusted partner for organizations navigating complexity, the team leaders call when the picture
+                has to be right.
+              </p>
+            </article>
+          </div>
         </div>
       </section>
 
-      <ContentGrid
-        id="what-we-do"
-        label="What We Do"
-        title="We transform information into business advantage."
-        items={["Enterprise visibility", "Decision support", "Execution enablement"]}
-      />
-      <ContentGrid id="our-approach" label="Our Approach" title="Connect. Contextualise. Activate." items={approach.map((item) => item.title)} />
-      <ContentGrid id="why-canyon" label="Why Canyon Data Labs" title="Business strategy guides technology with clarity and purpose." items={differentiators} />
-      <ContentGrid id="who-we-help" label="Who We Help" title="For organizations ready to operate with greater clarity." items={audiences} />
+      <section className="about-work-section" id="what-we-do">
+        <div className="container">
+          <div className="about-section-head reveal">
+            <p className="section-label">What We Do</p>
+            <h2>We transform information into business advantage.</h2>
+          </div>
+          <div className="about-work-grid">
+            {whatWeDo.map((item) => (
+              <article className="about-work-card reveal" key={item.title}>
+                <AboutIcon type={item.icon} />
+                <h3>{item.title}</h3>
+                <p>{item.copy}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="about-process-section" id="our-approach">
+        <div className="container">
+          <div className="about-process-head reveal">
+            <p className="section-label">Our Approach</p>
+            <h2>Connect. Contextualise. Activate.</h2>
+            <p>One continuous motion from scattered signals to accountable action.</p>
+          </div>
+          <div className="about-pipeline" aria-hidden="true">
+            <svg viewBox="0 0 1120 120">
+              <path className="about-pipe-base" d="M40 80 C 200 80, 240 40, 400 40 C 560 40, 580 88, 740 88 C 880 88, 940 52, 1080 52" />
+              <path className="about-pipe-active" d="M40 80 C 200 80, 240 40, 400 40 C 560 40, 580 88, 740 88 C 880 88, 940 52, 1080 52" />
+              <circle className="about-pipe-dot" cx="40" cy="80" r="7" />
+              <circle className="about-pipe-dot" cx="560" cy="64" r="7" />
+              <circle className="about-pipe-dot" cx="1080" cy="52" r="7" />
+            </svg>
+          </div>
+          <div className="about-steps">
+            <article className="reveal">
+              <h3>
+                <span>01</span> Connect
+              </h3>
+              <p>Unify systems, functions, and processes into a shared operating view.</p>
+            </article>
+            <article className="reveal">
+              <h3>
+                <span>02</span> Contextualise
+              </h3>
+              <p>Translate information into business meaning leaders can act on.</p>
+            </article>
+            <article className="reveal">
+              <h3>
+                <span>03</span> Activate
+              </h3>
+              <p>Move insights into accountable workflows, alerts, and outcomes.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="about-why-section" id="why-canyon">
+        <div className="container about-why-grid">
+          <div className="about-why-copy reveal">
+            <p className="section-label">Why Canyon Data Labs</p>
+            <h2>Business strategy guides technology with clarity and purpose.</h2>
+            <p>
+              We lead with the operating reality of your business, then build the systems that serve it.
+            </p>
+          </div>
+          <ol className="about-why-list">
+            {whyItems.map((item, index) => (
+              <li className="reveal" key={item.title}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <div>
+                  <h3>{item.title}</h3>
+                  <p>{item.copy}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
     </>
+  );
+}
+
+function AboutIcon({ type }: { type: string }) {
+  if (type === "decision") {
+    return (
+      <svg className="about-icon" viewBox="0 0 54 54" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
+        <circle cx="27" cy="14" r="6" />
+        <path d="M27 20 V30 M27 30 L12 42 M27 30 L42 42" />
+        <circle cx="12" cy="44" r="3.5" />
+        <circle cx="42" cy="44" r="3.5" />
+      </svg>
+    );
+  }
+
+  if (type === "execution") {
+    return (
+      <svg className="about-icon" viewBox="0 0 54 54" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
+        <path d="M6 27 H34" />
+        <path d="M27 18 L36 27 L27 36" />
+        <rect x="40" y="14" width="10" height="26" rx="2" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg className="about-icon" viewBox="0 0 54 54" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
+      <path d="M6 40 L18 28 L27 34 L48 12" />
+      <path d="M38 12 H48 V22" />
+      <line x1="6" y1="46" x2="48" y2="46" opacity=".35" />
+    </svg>
   );
 }
 
