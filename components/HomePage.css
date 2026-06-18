@@ -1,11 +1,11 @@
 .hero-section {
   background:
-    linear-gradient(90deg, rgba(4, 13, 20, 0.96) 0%, rgba(4, 13, 20, 0.78) 48%, rgba(4, 13, 20, 0.52) 100%),
-    radial-gradient(circle at 76% 22%, rgba(250, 129, 18, 0.18), transparent 28%),
-    radial-gradient(circle at 24% 78%, rgba(148, 180, 193, 0.12), transparent 30%),
-    url("/images/canyon-hero-mountains.jpg"),
+    linear-gradient(90deg, rgba(4, 13, 20, 0.96) 0%, rgba(4, 13, 20, 0.86) 38%, rgba(4, 13, 20, 0.5) 74%, rgba(4, 13, 20, 0.38) 100%),
+    radial-gradient(circle at 78% 18%, rgba(250, 129, 18, 0.2), transparent 30%),
+    radial-gradient(circle at 30% 82%, rgba(148, 180, 193, 0.1), transparent 34%),
+    url("/images/canyon-hero-abstract.png"),
     linear-gradient(135deg, #040d14 0%, #07131c 58%, #111c24 100%);
-  background-position: center, center, center, center 48%, center;
+  background-position: center, center, center, center, center;
   background-repeat: no-repeat;
   background-size: auto, auto, auto, cover, auto;
   color: white;
@@ -24,26 +24,28 @@
 
 .hero-section::before {
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
   background-size: 46px 46px;
   inset: 0;
-  mask-image: linear-gradient(90deg, transparent 0%, black 14%, black 92%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, black 12%, black 70%, transparent 100%);
 }
 
 .hero-section::after {
-  animation: sweepSignal 9s ease-in-out infinite;
-  background: linear-gradient(105deg, transparent 0%, rgba(250, 129, 18, 0.18) 45%, transparent 70%);
-  height: 150%;
-  left: -35%;
-  top: -20%;
-  transform: rotate(8deg);
-  width: 42%;
+  animation: heroImageDrift 18s ease-in-out infinite alternate;
+  background: inherit;
+  background-position: inherit;
+  background-repeat: inherit;
+  background-size: inherit;
+  inset: -22px;
+  opacity: 0.36;
+  transform: scale(1.01);
+  z-index: 0;
 }
 
 .hero-contours {
   inset: 0;
-  opacity: 0.46;
+  opacity: 0.22;
   overflow: hidden;
   pointer-events: none;
   position: absolute;
@@ -83,7 +85,7 @@
 
 .hero-atmosphere span {
   animation: signalDrift 9s ease-in-out infinite;
-  background: linear-gradient(90deg, transparent, rgba(148, 180, 193, 0.42), rgba(250, 129, 18, 0.38), transparent);
+  background: linear-gradient(90deg, transparent, rgba(148, 180, 193, 0.26), rgba(250, 129, 18, 0.24), transparent);
   height: 1px;
   left: 8%;
   position: absolute;
@@ -170,6 +172,18 @@
   50% {
     opacity: 0.42;
     transform: translateX(220%) rotate(8deg);
+  }
+}
+
+@keyframes heroImageDrift {
+  0% {
+    opacity: 0.22;
+    transform: scale(1.01) translate3d(0, 0, 0);
+  }
+
+  100% {
+    opacity: 0.4;
+    transform: scale(1.045) translate3d(-1.1%, -0.8%, 0);
   }
 }
 
