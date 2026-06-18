@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { advantagePillars, audienceGroups } from "@/lib/content";
+import { advantagePillars } from "@/lib/content";
 import "./HomePage.css";
 
 const signalSources = ["ERP", "CRM", "Spreadsheets", "Plant & supply", "Reports"];
@@ -168,30 +168,6 @@ export function HomePage() {
                   <h3>{pillar.title}</h3>
                   <p>{pillar.outcome}</p>
                 </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section audience-section">
-        <div className="container audience-shell">
-          <div className="audience-heading reveal">
-            <p className="section-label">Who We Help</p>
-            <h2>Built For Teams That Run The Business.</h2>
-            <p className="lead">Canyon gives each function the context it needs while keeping leadership aligned around one operating view.</p>
-          </div>
-          <div className="audience-map" aria-label="Teams Canyon helps">
-            {audienceGroups.map((group, index) => (
-              <article className="audience-card reveal" key={group.title}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <h3>{group.title}</h3>
-                <p>{group.outcome}</p>
-                <ul>
-                  {group.teams.map((team) => (
-                    <li key={team}>{team}</li>
-                  ))}
-                </ul>
               </article>
             ))}
           </div>

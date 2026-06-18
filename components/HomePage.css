@@ -799,116 +799,6 @@
   justify-self: start;
 }
 
-.audience-section {
-  background:
-    radial-gradient(circle at 88% 12%, rgba(250, 129, 18, 0.16), transparent 28%),
-    #f7f1e7;
-}
-
-.audience-shell {
-  background:
-    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px),
-    radial-gradient(circle at 78% 18%, rgba(250, 129, 18, 0.14), transparent 28%),
-    var(--navy);
-  background-size: 34px 34px, 34px 34px, auto, auto;
-  border-radius: 32px;
-  color: white;
-  display: grid;
-  gap: clamp(24px, 3vw, 42px);
-  grid-template-columns: minmax(280px, 0.44fr) minmax(0, 1fr);
-  padding: clamp(30px, 4vw, 54px);
-}
-
-.audience-heading .section-label {
-  color: var(--teal);
-}
-
-.audience-heading .lead {
-  color: rgba(255, 255, 255, 0.84);
-  max-width: 500px;
-}
-
-.audience-map {
-  display: grid;
-  gap: 18px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.audience-card {
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.055));
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 22px;
-  color: white;
-  display: grid;
-  grid-template-rows: auto auto 1fr auto;
-  min-height: clamp(250px, 32vh, 292px);
-  padding: 22px;
-  position: relative;
-  transition: transform 240ms var(--ease), border-color 240ms var(--ease), background 240ms var(--ease);
-}
-
-.audience-card:hover {
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.07));
-  border-color: rgba(250, 129, 18, 0.54);
-  transform: translateY(-4px);
-}
-
-.audience-card span {
-  align-items: center;
-  background: rgba(250, 129, 18, 0.16);
-  border: 1px solid rgba(250, 129, 18, 0.5);
-  border-radius: 999px;
-  color: var(--teal);
-  display: inline-flex;
-  font-size: 0.78rem;
-  font-weight: 750;
-  height: 38px;
-  justify-content: center;
-  margin-bottom: 22px;
-  width: 38px;
-}
-
-.audience-card h3 {
-  color: white;
-  font-size: clamp(1.12rem, 1.35vw, 1.38rem);
-  font-weight: 650;
-  letter-spacing: -0.01em;
-  line-height: 1.15;
-  margin-bottom: 12px;
-}
-
-.audience-card p {
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 0.88rem;
-  line-height: 1.48;
-  margin-bottom: 18px;
-}
-
-.audience-card ul {
-  align-self: end;
-  display: grid;
-  gap: 8px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.audience-card li {
-  align-items: center;
-  background: rgba(7, 20, 33, 0.32);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  color: rgba(255, 255, 255, 0.9);
-  display: flex;
-  font-size: 0.8rem;
-  font-weight: 650;
-  min-height: 34px;
-  padding: 7px 10px;
-}
-
 .final-cta {
   background:
     linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
@@ -979,7 +869,6 @@
 
 @media (max-width: 1020px) {
   .why-intro,
-  .audience-shell,
   .final-cta-inner {
     grid-template-columns: 1fr;
   }
@@ -1077,10 +966,6 @@
     max-width: 18ch;
   }
 
-  .audience-map {
-    grid-template-columns: 1fr;
-  }
-
   .operating-system {
     padding: 0 0 18px;
   }
@@ -1121,10 +1006,6 @@
 
   .outcome-stack {
     grid-template-columns: 1fr;
-  }
-
-  .audience-card {
-    min-height: auto;
   }
 
   .advantage-card {
