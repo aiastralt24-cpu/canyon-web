@@ -9,9 +9,10 @@
   background-repeat: no-repeat;
   background-size: auto, auto, auto, cover, auto;
   color: white;
-  min-height: clamp(620px, calc(100svh - 76px), 780px);
+  display: flex;
+  min-height: 100svh;
   overflow: hidden;
-  padding: clamp(38px, 6vh, 58px) 0 clamp(34px, 5vh, 48px);
+  padding: clamp(92px, 11vh, 118px) 0 clamp(62px, 8vh, 92px);
   position: relative;
 }
 
@@ -113,7 +114,8 @@
 .hero-grid {
   align-items: center;
   display: flex;
-  min-height: clamp(520px, calc(100svh - 174px), 640px);
+  flex: 1;
+  min-height: 0;
   position: relative;
   z-index: 1;
 }
@@ -1050,8 +1052,8 @@
 
 @media (max-width: 700px) {
   .hero-section {
-    min-height: auto;
-    padding: 42px 0 54px;
+    min-height: 100svh;
+    padding: 96px 0 58px;
   }
 
   .hero-copy .lead {
