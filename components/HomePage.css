@@ -358,9 +358,9 @@
 
 .flow-primary-line,
 .flow-output-line {
-  stroke: rgba(7, 19, 28, 0.72);
+  stroke: rgba(7, 19, 28, 0.2);
   stroke-linecap: round;
-  stroke-width: 2.35;
+  stroke-width: 1.65;
 }
 
 .flow-output-guide {
@@ -370,8 +370,8 @@
 }
 
 .flow-pulse {
-  fill: rgba(7, 19, 28, 0.72);
-  filter: drop-shadow(0 0 8px rgba(7, 19, 28, 0.18));
+  fill: rgba(7, 19, 28, 0.34);
+  filter: none;
   opacity: 0;
 }
 
