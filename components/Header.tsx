@@ -8,6 +8,7 @@ import "./Header.css";
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const primaryItems = navItems.filter((item) => item.label !== "Get in Touch");
   const menuItems = [
     { label: "Home", href: "/" },
@@ -34,8 +35,21 @@ export function Header() {
     };
   }, [open]);
 
+  useEffect(() => {
+    const updateScrolled = () => {
+      setScrolled(window.scrollY > 24);
+    };
+
+    updateScrolled();
+    window.addEventListener("scroll", updateScrolled, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", updateScrolled);
+    };
+  }, []);
+
   return (
-    <header className="site-header">
+    <header className={`site-header${scrolled ? " header-scrolled" : ""}`}>
       <div className="header-inner">
         <Logo />
 
