@@ -358,9 +358,9 @@
 
 .flow-primary-line,
 .flow-output-line {
-  stroke: #fa8112;
+  stroke: rgba(7, 19, 28, 0.72);
   stroke-linecap: round;
-  stroke-width: 2.7;
+  stroke-width: 2.35;
 }
 
 .flow-output-guide {
@@ -370,8 +370,8 @@
 }
 
 .flow-pulse {
-  fill: #fa8112;
-  filter: drop-shadow(0 0 10px rgba(250, 129, 18, 0.45));
+  fill: rgba(7, 19, 28, 0.72);
+  filter: drop-shadow(0 0 8px rgba(7, 19, 28, 0.18));
   opacity: 0;
 }
 
@@ -471,14 +471,6 @@
   color: var(--navy);
   font-size: clamp(1.08rem, 1.35vw, 1.34rem);
   font-weight: 650;
-  margin: 0 0 8px;
-}
-
-.flow-outcome p {
-  color: rgba(7, 19, 28, 0.58);
-  font-size: clamp(0.86rem, 0.94vw, 0.96rem);
-  font-weight: 600;
-  line-height: 1.35;
   margin: 0;
 }
 

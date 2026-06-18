@@ -40,8 +40,8 @@ export function HomePage() {
           <div className="hero-copy">
             <p className="section-label reveal">INSIGHTS. DECISIONS. GROWTH.</p>
             <h1 className="reveal">
-              <span>From raw data to</span>
-              <span className="hero-accent-line">boardroom decision.</span>
+              <span>Raw Data To</span>
+              <span className="hero-accent-line">Boardroom Decision</span>
             </h1>
             <p className="lead reveal">
               Canyon Data Labs connects business information, decision context, and execution accountability onto a
@@ -109,7 +109,6 @@ export function HomePage() {
                   <span>{String(index + 1).padStart(2, "0")}</span>
                   <div>
                     <h3>{card.title}</h3>
-                    <p>{card.copy}</p>
                   </div>
                 </article>
               ))}
