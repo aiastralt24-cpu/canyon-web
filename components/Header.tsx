@@ -13,9 +13,9 @@ export function Header() {
   const menuItems = [
     { label: "Home", href: "/" },
     { label: "Solutions", href: "/solutions" },
-    { label: "Use Cases", href: "/about-us#who-we-help" },
-    { label: "Platform", href: "/about-us#our-approach" },
-    { label: "Book A Demo", href: "/contact#book-demo" }
+    { label: "About", href: "/about-us" },
+    { label: "Resources", href: "/resources" },
+    { label: "Careers", href: "/careers" }
   ];
 
   useEffect(() => {
@@ -98,54 +98,58 @@ export function Header() {
               {menuItems.map((item) => (
                 <Link href={item.href} key={item.href} onClick={() => setOpen(false)}>
                   <span>{item.label}</span>
-                  <span aria-hidden="true">→</span>
+                  <span className="mobile-link-arrow" aria-hidden="true">
+                    →
+                  </span>
                 </Link>
               ))}
             </div>
 
-            <div className="mobile-menu-columns" aria-label="Quick links">
-              <div>
-                <p>Solutions</p>
-                <Link href="/solutions/canyon-edge" onClick={() => setOpen(false)}>
-                  Canyon Edge
-                </Link>
-                <Link href="/solutions/canyon-grid" onClick={() => setOpen(false)}>
-                  Canyon Grid
-                </Link>
-                <Link href="/solutions/canyon-systems" onClick={() => setOpen(false)}>
-                  Canyon Systems
-                </Link>
+            <div className="mobile-menu-lower">
+              <div className="mobile-menu-columns" aria-label="Quick links">
+                <div>
+                  <p>Solutions</p>
+                  <Link href="/solutions/canyon-systems" onClick={() => setOpen(false)}>
+                    Canyon Systems
+                  </Link>
+                  <Link href="/solutions/canyon-edge" onClick={() => setOpen(false)}>
+                    Canyon Edge
+                  </Link>
+                  <Link href="/solutions/canyon-grid" onClick={() => setOpen(false)}>
+                    Canyon Grid
+                  </Link>
+                </div>
+                <div>
+                  <p>Explore</p>
+                  <Link href="/about-us#our-approach" onClick={() => setOpen(false)}>
+                    Our Approach
+                  </Link>
+                  <Link href="/about-us#what-we-do" onClick={() => setOpen(false)}>
+                    What We Do
+                  </Link>
+                  <Link href="/about-us#why-canyon" onClick={() => setOpen(false)}>
+                    Why Canyon
+                  </Link>
+                </div>
+                <div>
+                  <p>Company</p>
+                  <Link href="/about-us" onClick={() => setOpen(false)}>
+                    About Canyon
+                  </Link>
+                  <Link href="/resources" onClick={() => setOpen(false)}>
+                    Resources
+                  </Link>
+                  <Link href="/contact" onClick={() => setOpen(false)}>
+                    Contact
+                  </Link>
+                </div>
               </div>
-              <div>
-                <p>Use Cases</p>
-                <Link href="/about-us#who-we-help" onClick={() => setOpen(false)}>
-                  Operational Intelligence
-                </Link>
-                <Link href="/resources/insights" onClick={() => setOpen(false)}>
-                  Executive Dashboards
-                </Link>
-                <Link href="/solutions" onClick={() => setOpen(false)}>
-                  Decision Intelligence
-                </Link>
-              </div>
-              <div>
-                <p>Company</p>
-                <Link href="/about-us" onClick={() => setOpen(false)}>
-                  Customers
-                </Link>
-                <Link href="/resources" onClick={() => setOpen(false)}>
-                  How Canyon Works
-                </Link>
-                <Link href="/contact" onClick={() => setOpen(false)}>
-                  Contact
-                </Link>
-              </div>
-            </div>
 
-            <Link className="mobile-contact-pill" href="/contact" onClick={() => setOpen(false)}>
-              <span>Enterprise Intelligence Systems</span>
-              <span>Start A Conversation</span>
-            </Link>
+              <Link className="mobile-contact-pill" href="/contact#book-demo" onClick={() => setOpen(false)}>
+                <span>Book a Demo</span>
+                <span>Start A Conversation</span>
+              </Link>
+            </div>
           </nav>
         </div>
       ) : null}
