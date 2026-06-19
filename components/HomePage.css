@@ -248,6 +248,9 @@
     radial-gradient(circle at 88% 10%, rgba(250, 129, 18, 0.08), transparent 28%),
     linear-gradient(180deg, #f6f1e9 0%, #f2ece2 100%);
   color: var(--navy);
+  display: grid;
+  align-items: center;
+  min-height: 100svh;
   overflow: hidden;
   padding-top: clamp(64px, 8vh, 86px);
 }
@@ -258,13 +261,16 @@
     linear-gradient(90deg, rgba(7, 19, 28, 0.046) 1px, transparent 1px);
   background-size: 48px 48px;
   color: var(--navy);
+  display: grid;
+  align-content: center;
+  min-height: calc(100svh - clamp(132px, 17vh, 168px));
   padding: 0 0 clamp(28px, 4vh, 42px);
   position: relative;
 }
 
 .operating-header {
   display: block;
-  margin-bottom: clamp(30px, 4vh, 42px);
+  margin-bottom: clamp(42px, 6vh, 72px);
   max-width: 1060px;
 }
 
@@ -308,9 +314,9 @@
   align-items: center;
   display: grid;
   gap: clamp(28px, 3.8vw, 58px);
-  grid-template-columns: minmax(176px, 0.32fr) minmax(480px, 0.92fr) minmax(280px, 0.42fr);
+  grid-template-columns: minmax(230px, 0.38fr) minmax(460px, 0.84fr) minmax(340px, 0.5fr);
   margin-left: 0;
-  min-height: clamp(320px, 38vh, 390px);
+  min-height: clamp(390px, 44vh, 500px);
   position: relative;
   transform: none;
   width: 100%;
@@ -320,6 +326,10 @@
 .outcome-stack {
   display: grid;
   gap: 14px;
+}
+
+.outcome-stack {
+  gap: 22px;
 }
 
 .signal-stack span {
@@ -334,12 +344,12 @@
   font-weight: 700;
   justify-content: center;
   min-height: 46px;
-  min-width: min(100%, 210px);
+  min-width: min(100%, 250px);
   padding: 0 24px;
 }
 
 .flow-canvas {
-  min-height: clamp(320px, 38vh, 390px);
+  min-height: clamp(390px, 44vh, 500px);
   position: relative;
 }
 
@@ -367,14 +377,20 @@
   stroke-width: 1.65;
 }
 
+.flow-output-line {
+  stroke: rgba(250, 129, 18, 0.78);
+  stroke-width: 2;
+}
+
 .flow-output-guide {
-  stroke: rgba(7, 19, 28, 0.16);
-  stroke-dasharray: 5 8;
-  stroke-width: 1.65;
+  stroke: rgba(250, 129, 18, 0.7);
+  stroke-dasharray: 8 10;
+  stroke-linecap: round;
+  stroke-width: 2.15;
 }
 
 .flow-pulse {
-  fill: rgba(7, 19, 28, 0.34);
+  fill: rgba(250, 129, 18, 0.86);
   filter: none;
   opacity: 0;
 }
@@ -411,30 +427,46 @@
 .core-mark {
   align-items: flex-end;
   display: inline-flex;
-  gap: 7px;
-  height: 34px;
+  gap: 8px;
+  height: 50px;
   justify-content: center;
   margin: 0 auto;
 }
 
 .core-mark i {
-  background: #fa8112;
-  border-radius: 4px 4px 0 0;
+  border-radius: 16px 16px 3px 3px;
   display: block;
-  width: 9px;
+  position: relative;
+  width: 17px;
 }
 
 .core-mark i:nth-child(1) {
-  height: 18px;
+  background: #bd5949;
+  height: 31px;
 }
 
 .core-mark i:nth-child(2) {
-  height: 26px;
+  background: #ff944b;
+  height: 50px;
 }
 
-.core-mark i:nth-child(3) {
-  background: #ffb36b;
-  height: 36px;
+.core-mark i:nth-child(1)::before,
+.core-mark i:nth-child(2)::before {
+  background: inherit;
+  border-radius: 18px 18px 8px 8px;
+  content: "";
+  height: 18px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: -7px;
+  transform: skewY(-14deg);
+  transform-origin: bottom left;
+}
+
+.core-mark i:nth-child(1)::before {
+  height: 14px;
+  top: -5px;
 }
 
 .flow-core-label {
@@ -451,10 +483,11 @@
 }
 
 .flow-outcome {
-  align-items: start;
+  align-items: center;
   display: grid;
-  gap: 14px;
+  gap: 20px;
   grid-template-columns: auto 1fr;
+  min-height: 72px;
 }
 
 .flow-outcome > span {
@@ -473,8 +506,9 @@
 
 .flow-outcome h3 {
   color: var(--navy);
-  font-size: clamp(1.08rem, 1.35vw, 1.34rem);
+  font-size: clamp(1.08rem, 1.2vw, 1.22rem);
   font-weight: 650;
+  line-height: 1.1;
   margin: 0;
 }
 
@@ -517,7 +551,7 @@
 }
 
 .flow-pulse-b {
-  offset-path: path("M650 210 C 800 210, 870 210, 1008 210");
+  offset-path: path("M650 210 C 770 210, 850 210, 924 210 C 996 210, 1074 210, 1158 210");
 }
 
 .why-section {
@@ -950,10 +984,12 @@
 }
 
 .final-cta-copy h2 {
+  display: grid;
   font-size: clamp(1.8rem, 3vw, 3.1rem);
   font-weight: 620;
+  gap: 0.12em;
   letter-spacing: -0.014em;
-  line-height: 1.12;
+  line-height: 1.2;
 }
 
 .final-cta-actions {
@@ -971,6 +1007,17 @@
 }
 
 @media (max-width: 1020px) {
+  .operating-section {
+    display: block;
+    min-height: 0;
+  }
+
+  .operating-system {
+    align-content: normal;
+    display: block;
+    min-height: 0;
+  }
+
   .why-intro,
   .final-cta-inner {
     grid-template-columns: 1fr;

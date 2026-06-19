@@ -65,7 +65,7 @@ export function Header() {
 
         <div className="header-actions">
           <Link className="btn primary header-cta" href="/contact#book-demo">
-            Book a Demo
+            Book a Discovery Workshop
           </Link>
 
           <button
@@ -146,7 +146,7 @@ export function Header() {
               </div>
 
               <Link className="mobile-contact-pill" href="/contact#book-demo" onClick={() => setOpen(false)}>
-                <span>Book a Demo</span>
+                <span>Book a Discovery Workshop</span>
                 <span>Start A Conversation</span>
               </Link>
             </div>

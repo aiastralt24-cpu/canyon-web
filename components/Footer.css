@@ -30,8 +30,15 @@
 }
 
 .site-footer .logo-link {
-  filter: brightness(0) invert(1);
   margin-bottom: 26px;
+}
+
+.site-footer .logo-link .logo-img-on-light {
+  display: none;
+}
+
+.site-footer .logo-link .logo-img-on-dark {
+  display: block;
 }
 
 .footer-brand p {

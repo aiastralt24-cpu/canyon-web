@@ -5,10 +5,19 @@ export function Logo() {
   return (
     <Link className="logo-link" href="/" aria-label="Canyon Data Labs home">
       <Image
-        src="/images/canyon-data-labs-logo.png"
+        className="logo-img-on-light"
+        src="/images/canyon-data-labs-logo-dark.png"
         alt="Canyon Data Labs"
-        width={220}
-        height={124}
+        width={566}
+        height={144}
+        priority
+      />
+      <Image
+        className="logo-img-on-dark"
+        src="/images/canyon-data-labs-logo-rgb.png"
+        alt="Canyon Data Labs"
+        width={900}
+        height={227}
         priority
       />
     </Link>

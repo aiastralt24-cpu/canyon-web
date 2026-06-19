@@ -2,7 +2,7 @@ import Link from "next/link";
 import { advantagePillars, audiences } from "@/lib/content";
 import "./HomePage.css";
 
-const signalSources = ["ERP", "CRM", "Spreadsheets", "Plant & supply", "Reports"];
+const signalSources = ["ERP", "CRM", "Manufacturing Units Data", "Supply Chain Data", "Reports"];
 
 const operatingOutcomes = [
   {
@@ -49,7 +49,7 @@ export function HomePage() {
             </p>
             <div className="button-row reveal">
               <Link className="btn primary" href="/contact#book-demo">
-                Book a Demo
+                Book a Discovery Workshop
               </Link>
               <Link className="btn secondary" href="/solutions">
                 Explore Solutions
@@ -86,16 +86,16 @@ export function HomePage() {
                   <path d="M18 366 C 235 368, 330 230, 528 214" />
                 </g>
                 <path className="flow-primary-line" d="M18 206 C 282 206, 348 208, 528 210" />
-                <path className="flow-output-line" d="M650 210 C 800 210, 870 210, 1008 210" />
-                <path className="flow-output-guide flow-guide-top" d="M1008 210 C 1024 156, 1054 116, 1112 86" />
-                <path className="flow-output-guide flow-guide-bottom" d="M1008 210 C 1024 264, 1054 304, 1112 334" />
+                <path className="flow-output-line" d="M650 210 C 770 210, 850 210, 924 210" />
+                <path className="flow-output-guide flow-guide-top" d="M924 210 C 1002 148, 1068 94, 1158 62" />
+                <path className="flow-output-guide flow-guide-mid" d="M924 210 C 996 210, 1074 210, 1158 210" />
+                <path className="flow-output-guide flow-guide-bottom" d="M924 210 C 1002 272, 1068 326, 1158 358" />
                 <circle className="flow-pulse flow-pulse-a" r="5" />
                 <circle className="flow-pulse flow-pulse-b" r="5" />
               </svg>
 
               <div className="flow-core">
                 <span className="core-mark" aria-hidden="true">
-                  <i />
                   <i />
                   <i />
                 </span>
@@ -194,6 +194,7 @@ export function HomePage() {
           <div className="final-cta-copy">
             <p className="section-label">Start with the business priority</p>
             <h2>
+              <span>Build Smart Systems.</span>
               <span>Connect Systems.</span>
               <span>Improve Visibility.</span>
               <span>Strengthen Accountability.</span>
@@ -201,7 +202,7 @@ export function HomePage() {
           </div>
           <div className="button-row final-cta-actions">
             <Link className="btn primary" href="/contact#book-demo">
-              Book a Demo
+              Book a Discovery Workshop
             </Link>
             <Link className="btn secondary" href="/solutions">
               Explore Solution

@@ -4,8 +4,8 @@ import "./InnerPages.css";
 
 type SimplePageProps = {
   eyebrow: string;
-  title: string;
-  copy: string;
+  title: React.ReactNode;
+  copy: React.ReactNode;
   cta?: string;
   ctaHref?: string;
   secondaryCta?: string;
@@ -17,7 +17,7 @@ export function SimplePage({
   eyebrow,
   title,
   copy,
-  cta = "Book a Demo",
+  cta = "Book a Discovery Workshop",
   ctaHref = "/contact#book-demo",
   secondaryCta = "Explore Solutions",
   secondaryHref = "/solutions",
@@ -70,11 +70,11 @@ export function AboutContent() {
   const whyItems = [
     {
       title: "Business-first thinking",
-      copy: "Start with the leadership priority, then shape technology around the operating reality."
+      copy: "Everything we build, every connection, every intelligence view, every alert is designed backward from that answer."
     },
     {
       title: "Tailored to your reality",
-      copy: "Built around existing systems, team rhythms, and business goals."
+      copy: "Built around existing systems, team rhythms, and business goals, not a forced template."
     },
     {
       title: "One partner, every layer",
@@ -86,7 +86,7 @@ export function AboutContent() {
     },
     {
       title: "Built to evolve",
-      copy: "Operating systems that grow with teams, markets, and priorities."
+      copy: "Operating systems that grow with teams, markets, and priorities, designed for change."
     }
   ];
 
@@ -96,14 +96,17 @@ export function AboutContent() {
         <div className="container about-overview-grid">
           <div className="about-overview-copy reveal">
             <p className="section-label">Company Overview</p>
-            <h2>Clarity built around how the business actually works.</h2>
+            <h2>
+              We build what is missing. We connect what exists. We make it all work together.
+            </h2>
             <p>
-              Canyon Data Labs works with leadership teams to connect information, context, and execution into one
-              confident operating view.
+              Some enterprises need the systems built. Others need the systems connected. Most need the intelligence
+              layer that makes all of it useful. Canyon Data Labs does all three: one partner, from the first data point
+              to the boardroom decision.
             </p>
             <p>
-              Every engagement starts with the business priority, then shapes systems, workflows, and decision support
-              around the outcomes leaders want to move.
+              Every engagement starts with the problem your business needs to solve, then connects the data, builds the
+              intelligence, and delivers it to the people who can act on it.
             </p>
           </div>
           <figure className="about-strata-panel reveal" aria-label="Signals flowing into one operating view">
@@ -134,22 +137,21 @@ export function AboutContent() {
       <section className="about-statement-section" id="vision-mission">
         <div className="container about-statement reveal">
           <p className="section-label">Mission &amp; Vision</p>
-          <h2>
-            Empowering organizations with <em>clarity</em>, visibility, and confidence.
-          </h2>
+          <h2>One partner. Every layer. Every decision.</h2>
           <div className="about-mission-grid">
             <article>
               <p className="section-label">Mission</p>
               <p>
-                Empower organizations with clarity, visibility, and confidence so every decision is grounded in how the
-                business actually performs.
+                To be the only partner an enterprise needs on its data journey, building the systems that capture
+                operational data, connecting every source into one intelligent layer, and making sure the right decision
+                reaches the right person before the moment passes.
               </p>
             </article>
             <article>
               <p className="section-label">Vision</p>
               <p>
-                Be the trusted partner for organizations navigating complexity, the team leaders call when the picture
-                has to be right.
+                To be the most trusted data partner for enterprises across India and global markets, the company that
+                turns an organisation&apos;s own data into its sharpest competitive advantage.
               </p>
             </article>
           </div>
@@ -217,9 +219,10 @@ export function AboutContent() {
         <div className="container about-why-grid">
           <div className="about-why-copy reveal">
             <p className="section-label">Why Canyon Data Labs</p>
-            <h2>Business strategy guides technology with clarity and purpose.</h2>
+            <h2>Every engagement starts with the decision that needs to be made.</h2>
             <p>
-              We lead with the operating reality of your business, then build the systems that serve it.
+              We work backward from the business problem, building the systems, connections, and intelligence that get
+              the right answer to the right person at exactly the right moment.
             </p>
           </div>
           <ol className="about-why-list">
@@ -432,7 +435,7 @@ export function ContactContent() {
     <section className="section compact" id="book-demo">
       <div className="container contact-panel reveal">
         <div>
-          <p className="section-label">Book a Demo</p>
+          <p className="section-label">Book a Discovery Workshop</p>
           <h2>Start with the business priority.</h2>
           <p className="lead">Share where clearer information, stronger context, and faster execution can create momentum.</p>
         </div>

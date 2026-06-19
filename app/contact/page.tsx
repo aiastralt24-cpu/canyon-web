@@ -8,7 +8,7 @@ export default function ContactPage() {
         eyebrow="Get in Touch"
         title="Start with the business priority."
         copy="Share the systems, decisions, and execution priorities that can create the next level of operating clarity."
-        cta="Book a Demo"
+        cta="Book a Discovery Workshop"
         ctaHref="#book-demo"
       />
       <ContactContent />
