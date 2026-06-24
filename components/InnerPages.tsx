@@ -1,11 +1,12 @@
 import Link from "next/link";
-import { solutionCapabilities, solutions } from "@/lib/content";
+import { solutionArchitecture, solutionDetails, solutions } from "@/lib/content";
 import "./InnerPages.css";
 
 type SimplePageProps = {
   eyebrow: string;
   title: React.ReactNode;
   copy: React.ReactNode;
+  heroClassName?: string;
   cta?: string;
   ctaHref?: string;
   secondaryCta?: string;
@@ -17,6 +18,7 @@ export function SimplePage({
   eyebrow,
   title,
   copy,
+  heroClassName,
   cta = "Book a Discovery Workshop",
   ctaHref = "/contact#book-demo",
   secondaryCta = "Explore Solutions",
@@ -25,8 +27,9 @@ export function SimplePage({
 }: SimplePageProps) {
   return (
     <>
-      <section className="inner-hero">
+      <section className={["inner-hero", heroClassName].filter(Boolean).join(" ")}>
         <div className="inner-hero-glow" aria-hidden="true" />
+        <StrataBackground />
         <div className="container inner-hero-grid">
           <div className="inner-hero-copy">
             <p className="section-label reveal">{eyebrow}</p>
@@ -49,24 +52,6 @@ export function SimplePage({
 }
 
 export function AboutContent() {
-  const whatWeDo = [
-    {
-      title: "Enterprise visibility",
-      copy: "Bring trusted information into one leadership view across systems, reports, and teams.",
-      icon: "visibility"
-    },
-    {
-      title: "Decision support",
-      copy: "Shape signals into context that helps leaders choose the next move with confidence.",
-      icon: "decision"
-    },
-    {
-      title: "Execution enablement",
-      copy: "Connect insight to owners, workflows, and follow-through across the business.",
-      icon: "execution"
-    }
-  ];
-
   const whyItems = [
     {
       title: "Business-first thinking",
@@ -90,15 +75,63 @@ export function AboutContent() {
     }
   ];
 
+  const whoWeHelp = [
+    {
+      title: "Leadership teams",
+      copy: "One trusted view for direction, priorities, and decisions."
+    },
+    {
+      title: "Operations teams",
+      copy: "Cleaner execution flow, faster response, and visible ownership."
+    },
+    {
+      title: "Finance teams",
+      copy: "Reliable reporting context with fewer disconnected sources."
+    },
+    {
+      title: "Sales and commercial teams",
+      copy: "Performance visibility across markets, customers, and movement."
+    },
+    {
+      title: "Supply chain teams",
+      copy: "Planning, inventory, and operations connected in one picture."
+    },
+    {
+      title: "Growing businesses",
+      copy: "Systems and intelligence ready for the next stage of scale."
+    }
+  ];
+
+  const audienceIcons = [
+    [
+      "M12 4.5l6.5 3.5v8L12 19.5 5.5 16V8L12 4.5z",
+      "M12 8.5v7",
+      "M8.5 10.4l3.5 2 3.5-2"
+    ],
+    ["M5 12h14", "M12 5v14", "M7 7h4v4H7z", "M13 13h4v4h-4z"],
+    ["M6 7.5h12", "M8 11h8", "M8 14.5h5", "M6 4.5h12v15H6z"],
+    ["M5 16.5l4-4 3 3 7-8", "M15 7.5h4v4", "M5 19h14"],
+    [
+      "M4.5 8.5h9v7h-9z",
+      "M13.5 10.5h3.5l2.5 2.8v2.2h-6z",
+      "M7 18a1.6 1.6 0 1 0 0-3.2A1.6 1.6 0 0 0 7 18z",
+      "M16.8 18a1.6 1.6 0 1 0 0-3.2 1.6 1.6 0 0 0 0 3.2z"
+    ],
+    ["M5 18V9.5", "M10 18V6.5", "M15 18v-4.5", "M4.5 18.5h15", "M15 8l4-4", "M16 4h3v3"]
+  ];
+
   return (
     <>
       <section className="about-overview-section" id="company-overview">
         <div className="container about-overview-grid">
           <div className="about-overview-copy reveal">
             <p className="section-label">Company Overview</p>
-            <h2>
-              We build what is missing. We connect what exists. We make it all work together.
-            </h2>
+            <h2>Make it all work together.</h2>
+            <div className="about-overview-rhythm" aria-label="How Canyon works">
+              <span>Build what is missing.</span>
+              <span>Connect what exists.</span>
+              <span>Make it work together.</span>
+            </div>
             <p>
               Some enterprises need the systems built. Others need the systems connected. Most need the intelligence
               layer that makes all of it useful. Canyon Data Labs does all three: one partner, from the first data point
@@ -122,9 +155,9 @@ export function AboutContent() {
                 <path d="M0 300 C 150 270, 270 340, 390 300 S 560 260, 600 290" />
                 <path d="M0 370 C 160 340, 280 410, 400 370 S 565 335, 600 360" />
               </g>
-              <path d="M0 230 C 140 195, 260 270, 380 230 S 550 185, 600 220" stroke="#fa8112" strokeWidth="2" fill="none" />
-              <circle cx="380" cy="230" r="5" fill="#fa8112" />
-              <circle cx="380" cy="230" r="11" fill="none" stroke="#fa8112" opacity=".4" />
+              <path d="M0 230 C 140 195, 260 270, 380 230 S 550 185, 600 220" stroke="#f7914b" strokeWidth="2" fill="none" />
+              <circle cx="380" cy="230" r="5" fill="#f7914b" />
+              <circle cx="380" cy="230" r="11" fill="none" stroke="#f7914b" opacity=".4" />
             </svg>
             <figcaption>
               <span />
@@ -158,56 +191,58 @@ export function AboutContent() {
         </div>
       </section>
 
-      <section className="about-work-section" id="what-we-do">
-        <div className="container">
-          <div className="about-section-head reveal">
-            <p className="section-label">What We Do</p>
-            <h2>We transform information into business advantage.</h2>
-          </div>
-          <div className="about-work-grid">
-            {whatWeDo.map((item) => (
-              <article className="about-work-card reveal" key={item.title}>
-                <AboutIcon type={item.icon} />
-                <h3>{item.title}</h3>
-                <p>{item.copy}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="about-process-section" id="our-approach">
+        <StrataBackground />
         <div className="container">
           <div className="about-process-head reveal">
             <p className="section-label">Our Approach</p>
-            <h2>Connect. Contextualise. Activate.</h2>
+            <h2>
+              <span>Connect.</span>
+              <span>Contextualise.</span>
+              <span>Activate.</span>
+            </h2>
             <p>One continuous motion from scattered signals to accountable action.</p>
           </div>
           <div className="about-pipeline" aria-hidden="true">
-            <svg viewBox="0 0 1120 120">
-              <path className="about-pipe-base" d="M40 80 C 200 80, 240 40, 400 40 C 560 40, 580 88, 740 88 C 880 88, 940 52, 1080 52" />
-              <path className="about-pipe-active" d="M40 80 C 200 80, 240 40, 400 40 C 560 40, 580 88, 740 88 C 880 88, 940 52, 1080 52" />
-              <circle className="about-pipe-dot" cx="40" cy="80" r="7" />
-              <circle className="about-pipe-dot" cx="560" cy="64" r="7" />
-              <circle className="about-pipe-dot" cx="1080" cy="52" r="7" />
+            <svg viewBox="0 0 1160 230" preserveAspectRatio="none">
+              <path
+                className="about-pipe-base"
+                d="M40 118 C 205 120 270 76 424 70 C 558 64 602 106 694 124 C 812 148 914 93 1120 84"
+              />
+              <path
+                className="about-pipe-active"
+                d="M40 118 C 205 120 270 76 424 70 C 558 64 602 106 694 124 C 812 148 914 93 1120 84"
+              />
+              <g className="about-pipe-marker">
+                <line x1="156" y1="118" x2="156" y2="202" />
+                <circle cx="156" cy="118" r="10" />
+              </g>
+              <g className="about-pipe-marker">
+                <line x1="575" y1="96" x2="575" y2="202" />
+                <circle cx="575" cy="96" r="10" />
+              </g>
+              <g className="about-pipe-marker">
+                <line x1="995" y1="86" x2="995" y2="202" />
+                <circle cx="995" cy="86" r="10" />
+              </g>
             </svg>
           </div>
           <div className="about-steps">
             <article className="reveal">
               <h3>
-                <span>01</span> Connect
+                <span>01</span> Signal unification
               </h3>
-              <p>Unify systems, functions, and processes into a shared operating view.</p>
+              <p>Build and unify systems, functions, and processes into a shared operating view.</p>
             </article>
             <article className="reveal">
               <h3>
-                <span>02</span> Contextualise
+                <span>02</span> Business meaning
               </h3>
-              <p>Translate information into business meaning leaders can act on.</p>
+              <p>Your data shaped around the way your business operates.</p>
             </article>
             <article className="reveal">
               <h3>
-                <span>03</span> Activate
+                <span>03</span> Accountable action
               </h3>
               <p>Move insights into accountable workflows, alerts, and outcomes.</p>
             </article>
@@ -238,125 +273,285 @@ export function AboutContent() {
           </ol>
         </div>
       </section>
+
+      <section className="about-audience-section" id="who-we-help">
+        <div className="container about-audience-shell">
+          <div className="about-audience-head reveal">
+            <p className="section-label">Who We Help</p>
+            <h2>
+              <span>One operating view</span>
+              <span>for every team.</span>
+            </h2>
+            <p>
+              Canyon connects the systems, context, and actions each function needs while keeping everyone aligned to
+              one source of truth.
+            </p>
+          </div>
+
+          <div className="about-audience-grid">
+            {whoWeHelp.map((team, index) => (
+              <article className="about-audience-card reveal" key={team.title}>
+                <span className="about-audience-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    {audienceIcons[index].map((path) => (
+                      <path key={path} d={path} />
+                    ))}
+                  </svg>
+                </span>
+                <div>
+                  <h3>{team.title}</h3>
+                  <p>{team.copy}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="about-audience-rail reveal" aria-hidden="true">
+            <div className="about-audience-track">
+              {[...whoWeHelp, ...whoWeHelp].map((team, index) => (
+                <span key={`${team.title}-${index}`}>{team.title}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
 
-function AboutIcon({ type }: { type: string }) {
-  if (type === "decision") {
-    return (
-      <svg className="about-icon" viewBox="0 0 54 54" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
-        <circle cx="27" cy="14" r="6" />
-        <path d="M27 20 V30 M27 30 L12 42 M27 30 L42 42" />
-        <circle cx="12" cy="44" r="3.5" />
-        <circle cx="42" cy="44" r="3.5" />
-      </svg>
-    );
-  }
-
-  if (type === "execution") {
-    return (
-      <svg className="about-icon" viewBox="0 0 54 54" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
-        <path d="M6 27 H34" />
-        <path d="M27 18 L36 27 L27 36" />
-        <rect x="40" y="14" width="10" height="26" rx="2" />
-      </svg>
-    );
-  }
-
+function StrataBackground() {
   return (
-    <svg className="about-icon" viewBox="0 0 54 54" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
-      <path d="M6 40 L18 28 L27 34 L48 12" />
-      <path d="M38 12 H48 V22" />
-      <line x1="6" y1="46" x2="48" y2="46" opacity=".35" />
-    </svg>
+    <div className="strata-bg" aria-hidden="true">
+      <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" fill="none">
+        <g className="strata-layer strata-layer-a" stroke="rgba(244,239,230,.10)" strokeWidth="1.5">
+          <path d="M-100 240 C 200 180, 420 320, 700 260 S 1200 160, 1700 250" />
+          <path d="M-100 300 C 220 250, 440 380, 720 320 S 1220 220, 1700 310" />
+          <path d="M-100 360 C 240 320, 460 440, 740 380 S 1240 290, 1700 370" />
+        </g>
+        <g className="strata-layer strata-layer-b" stroke="rgba(156,196,189,.16)" strokeWidth="1.5">
+          <path d="M-100 470 C 260 420, 480 560, 760 490 S 1260 400, 1700 480" />
+          <path d="M-100 540 C 280 500, 500 630, 780 560 S 1280 470, 1700 550" />
+        </g>
+        <g className="strata-layer strata-layer-c" stroke="rgba(244,239,230,.07)" strokeWidth="1.5">
+          <path d="M-100 660 C 300 620, 520 740, 800 670 S 1300 590, 1700 660" />
+          <path d="M-100 740 C 320 700, 540 820, 820 750 S 1320 670, 1700 740" />
+          <path d="M-100 820 C 340 780, 560 900, 840 830 S 1340 750, 1700 820" />
+        </g>
+        <path
+          className="strata-pulse-path"
+          d="M-100 470 C 260 420, 480 560, 760 490 S 1260 400, 1700 480"
+          stroke="#f7914b"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+        />
+      </svg>
+    </div>
   );
 }
 
 export function SolutionsContent() {
   return (
     <>
-      <section className="section solution-capabilities-section">
-        <div className="container solution-capabilities">
-          <div className="solution-capabilities-head reveal">
-            <p className="section-label">What Canyon Builds</p>
-            <h2>Enterprise Intelligence, Ready For Action.</h2>
-            <p className="lead">
-              Canyon creates the command layer that connects business signals, decision context, and accountable
-              execution.
+      <section className="section solution-architecture-section">
+        <div className="container solution-architecture">
+          <div className="solution-architecture-head reveal">
+            <p className="section-label">Platform Architecture</p>
+            <h2>
+              <span className="line-keep">Canyon Systems, Grid, and Edge</span>
+              <br />
+              <span className="line-keep">work as one connected platform.</span>
+            </h2>
+            <p>
+              <span>Capture operational data and contextualise it with business rules.</span>
+              <span>Then turn it into decisions, nudges, alerts, and executive intelligence.</span>
             </p>
           </div>
-          <div className="capability-grid" aria-label="Canyon solution capabilities">
-            {solutionCapabilities.map((capability, index) => (
-              <article className={`capability-card capability-${capability.visual} reveal`} key={capability.title}>
-                <div className="capability-visual" aria-hidden="true">
-                  <span />
-                  <span />
-                  <span />
-                  <span />
-                  <span />
+          <div className="architecture-track" aria-label="Canyon platform architecture">
+            {solutionArchitecture.map((layer) => (
+              <article className="architecture-card reveal" key={layer.name}>
+                <div className="architecture-step">
+                  <ArchitectureIcon verb={layer.verb} />
+                  <strong>{layer.verb}</strong>
                 </div>
-                <div className="capability-copy">
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                  <h3>{capability.title}</h3>
-                  <p>{capability.copy}</p>
-                </div>
+                <h3>{layer.name}</h3>
+                <p className="architecture-title">{layer.title}</p>
+                <p>{layer.copy}</p>
+                <ul className="architecture-proof">
+                  {layer.proof.map((proof) => (
+                    <li key={proof}>{proof}</li>
+                  ))}
+                </ul>
+                <Link className="text-link architecture-cta" href={layer.href}>
+                  Explore {layer.name} <span>→</span>
+                </Link>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section">
-        <div className="container page-card-grid">
-          {solutions.map((solution) => (
-            <article className="card reveal" key={solution.name}>
-              <p className="section-label">{solution.line}</p>
-              <h3>{solution.name}</h3>
-              <p className="body-copy">{solution.intro}</p>
-              <ul className="clean-list">
-                {solution.outcomes.map((outcome) => (
-                  <li key={outcome}>{outcome}</li>
-                ))}
-              </ul>
-              <Link className="text-link" href={solution.href}>
-                Explore {solution.name} <span>→</span>
-              </Link>
+    </>
+  );
+}
+
+function ArchitectureIcon({ verb }: { verb: string }) {
+  if (verb === "Capture") {
+    return (
+      <span className="architecture-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <rect x="5" y="4" width="14" height="16" rx="2.5" />
+          <path d="M8.5 8h7" />
+          <path d="M8.5 12h5" />
+          <path d="M8.5 16h3" />
+          <path d="m14.2 16.2 1.4 1.4 3-3.2" />
+        </svg>
+      </span>
+    );
+  }
+
+  if (verb === "Contextualise") {
+    return (
+      <span className="architecture-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M5 7h14" />
+          <path d="M5 12h14" />
+          <path d="M5 17h14" />
+          <circle cx="9" cy="7" r="1.8" />
+          <circle cx="15" cy="12" r="1.8" />
+          <circle cx="11" cy="17" r="1.8" />
+        </svg>
+      </span>
+    );
+  }
+
+  return (
+    <span className="architecture-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="7.5" />
+        <path d="m8.8 12.2 2.1 2.1 4.5-5" />
+        <path d="M16.5 5.8 19 3.3" />
+        <path d="M19.2 6.4V3h-3.4" />
+      </svg>
+    </span>
+  );
+}
+
+export function SolutionDetail({ name }: { name: string }) {
+  const solution = solutions.find((item) => item.name === name) ?? solutions[0];
+  const detail = solutionDetails[solution.name as keyof typeof solutionDetails];
+
+  return (
+    <>
+      <section className="section solution-detail-section">
+        <div className={`container solution-story-panel solution-story-${detail.visual} reveal`}>
+          <div className="solution-story-copy">
+            <p className="section-label">{detail.layer}</p>
+            <h2>{detail.headline}</h2>
+            <p>{detail.copy}</p>
+            <Link className="btn primary" href="/contact#book-demo">
+              Book a Discovery Workshop
+            </Link>
+          </div>
+          <SolutionVisual variant={detail.visual} />
+        </div>
+      </section>
+
+      <section className="section solution-capability-detail-section">
+        <div className="container solution-detail-grid">
+          {detail.capabilities.map((capability, index) => (
+            <article className="solution-detail-card reveal" key={capability.title}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <h3>{capability.title}</h3>
+              <p>{capability.copy}</p>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="section solution-fit-section">
+        <div className="container solution-fit-panel reveal">
+          <div>
+            <p className="section-label">Platform Fit</p>
+            <h2>Where {solution.name} fits in the Canyon platform.</h2>
+            <p>{detail.flowCopy}</p>
+          </div>
+          <div className="solution-layer-flow" aria-label="Canyon platform flow">
+            {solutionArchitecture.map((layer) => (
+              <Link
+                className={`solution-layer ${layer.name === solution.name ? "active" : ""}`}
+                href={layer.href}
+                key={layer.name}
+              >
+                <span>{layer.step}</span>
+                <strong>{layer.verb}</strong>
+                <small>{layer.name}</small>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
     </>
   );
 }
 
-export function SolutionDetail({ name }: { name: string }) {
-  const solution = solutions.find((item) => item.name === name) ?? solutions[0];
-
-  return (
-    <section className="section solution-detail-section">
-      <div className="container solution-detail-panel reveal">
-        <div>
-          <p className="section-label">{solution.line}</p>
-          <h2>{solution.name} creates a stronger operating foundation.</h2>
-          <p>{solution.intro}</p>
-          <Link className="btn primary" href="/contact#book-demo">
-            Discuss {solution.name}
-          </Link>
-        </div>
-        <div className="outcome-stack">
-          {solution.outcomes.map((outcome, index) => (
-            <article key={outcome}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <h3>{outcome}</h3>
-            </article>
-          ))}
+function SolutionVisual({ variant }: { variant: string }) {
+  if (variant === "grid") {
+    return (
+      <div className="solution-product-visual" aria-label="Canyon Grid governed data visual">
+        <div className="solution-visual-shell grid-visual">
+          <div className="grid-node primary">Rules</div>
+          <div className="grid-node">ERP</div>
+          <div className="grid-node">CRM</div>
+          <div className="grid-node">Finance</div>
+          <div className="grid-node">Supply</div>
+          <div className="grid-core">Governed Layer</div>
+          <div className="grid-output">Exceptions → Owners</div>
         </div>
       </div>
-    </section>
+    );
+  }
+
+  if (variant === "edge") {
+    return (
+      <div className="solution-product-visual" aria-label="Canyon Edge intelligence visual">
+        <div className="solution-visual-shell edge-visual">
+          <div className="edge-question">Ask Your Data</div>
+          <div className="edge-chart">
+            <span />
+            <span />
+            <span />
+            <span />
+          </div>
+          <div className="edge-card">Executive View</div>
+          <div className="edge-card accent">Nudge Sent</div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="solution-product-visual" aria-label="Canyon Systems operational capture visual">
+      <div className="solution-visual-shell systems-visual">
+        <div className="systems-tabs">
+          <span>SFA</span>
+          <span>CRM</span>
+        </div>
+        <div className="systems-list">
+          {["Visit logged", "Order captured", "Follow-up owned", "Customer updated"].map((item) => (
+            <div className="systems-row" key={item}>
+              <span />
+              {item}
+            </div>
+          ))}
+        </div>
+        <div className="systems-meter">
+          <strong>94%</strong>
+          <small>field visibility</small>
+        </div>
+      </div>
+    </div>
   );
 }
-
 export function ResourcesContent() {
   const items = [
     ["Insights", "Leadership thinking for connected operating views."],
@@ -410,50 +605,167 @@ export function ResourceDetailContent({ kind }: { kind: "insights" | "articles" 
 }
 
 export function CareersContent() {
+  const pillars = [
+    {
+      title: "Business-first thinking",
+      proof: "You will work from the business problem backward, not from a feature list forward."
+    },
+    {
+      title: "High ownership",
+      proof: "You will own a problem end-to-end: from the first question to the system in production."
+    },
+    {
+      title: "Calm execution",
+      proof: "We value clear thinking, reliable delivery, and direct communication over theatre."
+    }
+  ];
+
   return (
-    <section className="section page-band">
-      <div className="container split-panel reveal">
-        <div>
-          <p className="section-label">Careers At Canyon</p>
-          <h2>Work across business, systems, data, and execution.</h2>
+    <>
+      <section className="careers-section careers-pillars-section" id="life-at-canyon">
+        <div className="container careers-section-head careers-section-head-split reveal">
+          <div>
+            <p className="section-label">Life at Canyon</p>
+            <h2>Small teams. Real problems. Visible ownership.</h2>
+          </div>
+          <p>
+            Canyon is for people who can move between business context, product judgment, data detail, and accountable
+            execution without losing the thread.
+          </p>
         </div>
-        <div className="outcome-stack compact-stack">
-          {["Business-first thinking", "High ownership", "Calm execution"].map((item, index) => (
-            <article key={item}>
+        <div className="container careers-pillar-grid">
+          {pillars.map((pillar, index) => (
+            <article className="careers-pillar reveal" key={pillar.title}>
               <span>{String(index + 1).padStart(2, "0")}</span>
-              <h3>{item}</h3>
+              <h3>{pillar.title}</h3>
+              <strong>{pillar.proof}</strong>
             </article>
           ))}
         </div>
-      </div>
-    </section>
+      </section>
+
+      <section className="careers-section careers-apply-section" id="apply">
+        <div className="container careers-apply-grid">
+          <div className="careers-apply-copy reveal">
+            <p className="section-label">Apply</p>
+            <h2>Send us your thinking.</h2>
+            <p>
+              Share your CV and a short note on the kind of work you want to own. We look for range across business,
+              systems, data, and execution.
+            </p>
+            <dl className="careers-apply-notes" aria-label="Application details">
+              <div>
+                <dt>Best fit</dt>
+                <dd>Product, data, systems, and operating roles.</dd>
+              </div>
+              <div>
+                <dt>Response</dt>
+                <dd>We review thoughtful applications within one business week.</dd>
+              </div>
+            </dl>
+          </div>
+          <form className="careers-apply-form reveal">
+            <label htmlFor="careerName">
+              Name
+              <input id="careerName" name="name" placeholder="Your name" required suppressHydrationWarning />
+            </label>
+            <label htmlFor="careerEmail">
+              Email
+              <input id="careerEmail" name="email" type="email" placeholder="you@email.com" required suppressHydrationWarning />
+            </label>
+            <label htmlFor="careerRole">
+              Area of interest
+              <select id="careerRole" name="area" defaultValue="Product / engineering" suppressHydrationWarning>
+                <option>Product / engineering</option>
+                <option>Data / automation</option>
+                <option>Business operations</option>
+                <option>Open application</option>
+              </select>
+            </label>
+            <label htmlFor="careerCv">
+              CV / resume
+              <input id="careerCv" name="cv" type="file" accept=".pdf,.doc,.docx" suppressHydrationWarning />
+            </label>
+            <label htmlFor="careerNote" className="careers-apply-note-field">
+              Short note
+              <textarea
+                id="careerNote"
+                name="note"
+                placeholder="Tell us what kind of problem you want to work on."
+                rows={4}
+                suppressHydrationWarning
+              />
+            </label>
+            <button className="btn primary" type="submit">Submit application</button>
+          </form>
+        </div>
+      </section>
+    </>
   );
 }
 
 export function ContactContent() {
   return (
-    <section className="section compact" id="book-demo">
+    <section className="section contact-section" id="book-demo">
       <div className="container contact-panel reveal">
-        <div>
+        <div className="contact-copy">
           <p className="section-label">Book a Discovery Workshop</p>
-          <h2>Start with the business priority.</h2>
-          <p className="lead">Share where clearer information, stronger context, and faster execution can create momentum.</p>
+          <h2>What should the first conversation clarify?</h2>
+          <p className="lead">
+            Bring the decision, system, or operating gap that keeps resurfacing. Canyon will help frame the first
+            useful move: build, connect, automate, or bring intelligence closer to action.
+          </p>
+          <dl className="contact-meta-list" aria-label="Workshop details">
+            <div>
+              <dt>Base</dt>
+              <dd>Ahmedabad · India · Gulf</dd>
+            </div>
+            <div>
+              <dt>Email</dt>
+              <dd>hello@canyondatalabs.com</dd>
+            </div>
+            <div>
+              <dt>Response</dt>
+              <dd>Within 1 business day</dd>
+            </div>
+          </dl>
         </div>
-        <form className="contact-form">
-          <label>
+        <form className="contact-form contact-workshop-form">
+          <label htmlFor="contactName">
             Name
-            <input name="name" placeholder="Your name" suppressHydrationWarning />
+            <input id="contactName" name="name" placeholder="Your name" required suppressHydrationWarning />
           </label>
-          <label>
+          <label htmlFor="workEmail">
             Work email
-            <input name="email" type="email" placeholder="you@company.com" suppressHydrationWarning />
+            <input id="workEmail" name="email" type="email" placeholder="you@company.com" required suppressHydrationWarning />
           </label>
-          <label>
-            What should we help clarify?
-            <textarea name="message" placeholder="Share a few lines about your systems, decisions, or workflows." suppressHydrationWarning />
+          <label htmlFor="companyName">
+            Company
+            <input id="companyName" name="company" placeholder="Company name" suppressHydrationWarning />
+          </label>
+          <fieldset className="contact-chip-field">
+            <legend>Starting point</legend>
+            <div className="contact-chip-group">
+              {["Systems build", "Intelligence layer", "Automation", "Operating rhythm"].map((item, index) => (
+                <label className="contact-chip" key={item}>
+                  <input name="startingPoint" type="checkbox" value={item} defaultChecked={index === 0} />
+                  <span>{item}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+          <label htmlFor="primaryChallenge">
+            Notes
+            <textarea
+              id="primaryChallenge"
+              name="message"
+              placeholder="The priority, system, or decision you want to move on."
+              required
+              suppressHydrationWarning
+            />
           </label>
           <button className="btn primary" type="submit">
-            Send Request
+            Request the workshop
           </button>
         </form>
       </div>

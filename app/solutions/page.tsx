@@ -6,8 +6,14 @@ export default function SolutionsPage() {
     <SiteFrame>
       <SimplePage
         eyebrow="Solutions"
-        title="Three solutions. One connected path from information to impact."
-        copy="Canyon connects the foundation, intelligence, and execution layer that help leadership teams move with confidence."
+        heroClassName="solutions-hero"
+        title={
+          <>
+            <span className="inner-hero-title-line">Three layers.</span>
+            <span className="inner-hero-title-line inner-hero-title-accent">One connected platform.</span>
+          </>
+        }
+        copy="Canyon Systems captures operational data, Canyon Grid gives it business context, and Canyon Edge turns it into decisions teams can act on."
       />
       <SolutionsContent />
     </SiteFrame>

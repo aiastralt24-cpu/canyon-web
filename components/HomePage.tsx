@@ -1,22 +1,15 @@
 import Link from "next/link";
-import { advantagePillars, audiences } from "@/lib/content";
+import Image from "next/image";
+import { advantagePillars } from "@/lib/content";
 import "./HomePage.css";
 
-const signalSources = ["ERP", "CRM", "Manufacturing Units Data", "Supply Chain Data", "Reports"];
-
-const operatingOutcomes = [
-  {
-    title: "One operating view",
-    copy: "Trusted, shared, current"
-  },
-  {
-    title: "A clear decision",
-    copy: "Context leaders act on"
-  },
-  {
-    title: "Accountable action",
-    copy: "Owners, follow-through, results"
-  }
+const signalSources = [
+  "ERP",
+  "CRM/SFA/DMS",
+  "HRMS/LMS",
+  "Supply Chain & Logistics",
+  "Planning Systems",
+  "Manual Reports"
 ];
 
 export function HomePage() {
@@ -63,55 +56,64 @@ export function HomePage() {
         <div className="container operating-system reveal">
           <div className="operating-header">
             <p className="section-label">Operating Clarity</p>
-            <h2>One flow from signal to action.</h2>
+            <h2>
+              One Flow From
+              <br />
+              Signal To Action.
+            </h2>
             <p className="lead">
-              Connected systems on one side. Confident decisions on the other. Canyon is the flow between them.
+              <span>Disparate systems on one side.</span>
+              <span>Clear decisions on the other.</span>
+              <span>Canyon is the flow between them.</span>
             </p>
           </div>
 
           <div className="operating-flow" aria-label="Canyon operating model">
-            <div className="signal-stack" aria-label="Enterprise signals">
+            <svg className="operating-flow-lines" viewBox="0 0 1200 420" preserveAspectRatio="none" aria-hidden="true">
+              <path className="input-line line-a" d="M315 52 C430 52 520 178 600 210" />
+              <path className="input-line line-b" d="M315 116 C434 116 528 188 600 210" />
+              <path className="input-line line-c" d="M315 180 C446 180 540 202 600 210" />
+              <path className="input-line line-d" d="M315 244 C446 244 540 218 600 210" />
+              <path className="input-line line-e" d="M315 308 C434 308 528 232 600 210" />
+              <path className="input-line line-f" d="M315 372 C430 372 520 242 600 210" />
+              <path className="decision-line decision-top" d="M600 210 C704 116 796 70 914 70" />
+              <path className="decision-line decision-mid" d="M600 210 L914 210" />
+              <path className="decision-line decision-bottom" d="M600 210 C704 304 796 350 914 350" />
+            </svg>
+
+            <div className="operating-inputs" aria-label="Enterprise systems">
               {signalSources.map((source) => (
                 <span key={source}>{source}</span>
               ))}
             </div>
 
-            <div className="flow-canvas" aria-hidden="true">
-              <svg viewBox="0 0 1160 420" preserveAspectRatio="none">
-                <g className="flow-source-lines">
-                  <path d="M18 46 C 235 44, 330 190, 528 206" />
-                  <path d="M18 126 C 256 126, 340 196, 528 208" />
-                  <path d="M18 206 C 282 206, 348 208, 528 210" />
-                  <path d="M18 286 C 256 286, 340 222, 528 212" />
-                  <path d="M18 366 C 235 368, 330 230, 528 214" />
-                </g>
-                <path className="flow-primary-line" d="M18 206 C 282 206, 348 208, 528 210" />
-                <path className="flow-output-line" d="M650 210 C 770 210, 850 210, 924 210" />
-                <path className="flow-output-guide flow-guide-top" d="M924 210 C 1002 148, 1068 94, 1158 62" />
-                <path className="flow-output-guide flow-guide-mid" d="M924 210 C 996 210, 1074 210, 1158 210" />
-                <path className="flow-output-guide flow-guide-bottom" d="M924 210 C 1002 272, 1068 326, 1158 358" />
-                <circle className="flow-pulse flow-pulse-a" r="5" />
-                <circle className="flow-pulse flow-pulse-b" r="5" />
-              </svg>
-
-              <div className="flow-core">
-                <span className="core-mark" aria-hidden="true">
-                  <i />
-                  <i />
-                </span>
+            <div className="operating-diagram" aria-hidden="true">
+              <div className="diagram-core">
+                <Image
+                  className="core-mark"
+                  src="/images/canyon-flow-core-icon.png"
+                  alt=""
+                  width={4500}
+                  height={4500}
+                  aria-hidden="true"
+                />
+                <span>Canyon</span>
               </div>
-              <span className="flow-core-label">Canyon</span>
             </div>
 
-            <div className="outcome-stack" aria-label="Leadership outcomes">
-              {operatingOutcomes.map((card, index) => (
-                <article className="flow-outcome" key={card.title}>
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                  <div>
-                    <h3>{card.title}</h3>
-                  </div>
-                </article>
-              ))}
+            <div className="operating-outcomes" aria-label="Operating outcomes">
+              <div>
+                <span>01</span>
+                <strong>One Operating View</strong>
+              </div>
+              <div>
+                <span>02</span>
+                <strong>Clear Decisions</strong>
+              </div>
+              <div>
+                <span>03</span>
+                <strong>Accountable Action</strong>
+              </div>
             </div>
           </div>
         </div>
@@ -123,68 +125,24 @@ export function HomePage() {
             <p className="section-label">Why Us</p>
             <h2>Built Around Business Reality.</h2>
             <p className="lead">
-              Canyon turns leadership priorities into a connected operating model for clarity, ownership, and scale.
+              Canyon understands business requirements and transforms them into an{" "}
+              <span className="line-keep">enterprise-wide connected operating model.</span>
             </p>
           </div>
-          <div className="advantage-panel" aria-label="Canyon advantage map">
+          <div className="advantage-panel reveal" aria-label="Canyon advantage map">
             {advantagePillars.map((pillar, index) => (
-              <article className="advantage-card reveal" key={pillar.title}>
-                <div className="advantage-visual" aria-hidden="true">
-                  {index === 0 ? (
-                    <div className="frag-kpi">
-                      <span>Priority · Margin recovery</span>
-                      <strong>+2.4 pts</strong>
-                      <em>vs plan</em>
-                      <i />
-                    </div>
-                  ) : null}
-                  {index === 1 ? (
-                    <div className="frag-own">
-                      <p>
-                        <span>NK</span>
-                        Review priced SKUs
-                        <em>Due Fri</em>
-                      </p>
-                      <p>
-                        <span>RS</span>
-                        Confirm dispatch plan
-                        <em>Done</em>
-                      </p>
-                    </div>
-                  ) : null}
-                  {index === 2 ? (
-                    <div className="frag-ent">
-                      <span>Operating view</span>
-                      <div>
-                        <em>Group</em>
-                        <em>Pipes</em>
-                        <em>Adhesives</em>
-                        <em>Paints</em>
-                      </div>
-                    </div>
-                  ) : null}
-                </div>
+              <article className="advantage-card" key={pillar.title}>
+                <span className="advantage-number">{String(index + 1).padStart(2, "0")}</span>
                 <div className="advantage-copy">
                   <h3>{pillar.title}</h3>
-                  <p>{pillar.outcome}</p>
+                  <ul>
+                    {pillar.points.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
                 </div>
               </article>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="audience-strip" aria-label="Teams Canyon helps">
-        <div className="audience-strip-inner reveal">
-          <h2>Built for the teams that run the business.</h2>
-          <div className="audience-rail" aria-hidden="true">
-            <div className="audience-track">
-              {[...audiences, ...audiences].map((team, index) => (
-                <span className="audience-pill" key={`${team}-${index}`}>
-                  {team}
-                </span>
-              ))}
-            </div>
           </div>
         </div>
       </section>
@@ -198,6 +156,7 @@ export function HomePage() {
               <span>Connect Systems.</span>
               <span>Improve Visibility.</span>
               <span>Strengthen Accountability.</span>
+              <span>Drive Actionability.</span>
             </h2>
           </div>
           <div className="button-row final-cta-actions">

@@ -13,8 +13,7 @@ export function Header() {
   const menuItems = [
     { label: "Home", href: "/" },
     { label: "Solutions", href: "/solutions" },
-    { label: "About", href: "/about-us" },
-    { label: "Resources", href: "/resources" },
+    { label: "About Us", href: "/about-us" },
     { label: "Careers", href: "/careers" }
   ];
 
@@ -57,7 +56,7 @@ export function Header() {
           {primaryItems.map((item) => (
             <div className="nav-group" key={item.label}>
               <Link className="nav-link" href={item.href}>
-                {item.label === "About Us" ? "About" : item.label}
+                {item.label}
               </Link>
             </div>
           ))}
@@ -124,8 +123,8 @@ export function Header() {
                   <Link href="/about-us#our-approach" onClick={() => setOpen(false)}>
                     Our Approach
                   </Link>
-                  <Link href="/about-us#what-we-do" onClick={() => setOpen(false)}>
-                    What We Do
+                  <Link href="/about-us#who-we-help" onClick={() => setOpen(false)}>
+                    Who We Help
                   </Link>
                   <Link href="/about-us#why-canyon" onClick={() => setOpen(false)}>
                     Why Canyon
@@ -135,9 +134,6 @@ export function Header() {
                   <p>Company</p>
                   <Link href="/about-us" onClick={() => setOpen(false)}>
                     About Canyon
-                  </Link>
-                  <Link href="/resources" onClick={() => setOpen(false)}>
-                    Resources
                   </Link>
                   <Link href="/contact" onClick={() => setOpen(false)}>
                     Contact

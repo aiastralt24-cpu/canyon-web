@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { footerTagGroups } from "@/lib/content";
 import { Logo } from "./Logo";
 import "./Footer.css";
 
@@ -31,20 +30,6 @@ export function Footer() {
             <Link href="/solutions/canyon-grid">Canyon Grid</Link>
           </nav>
 
-          <nav className="footer-column" aria-label="Resources">
-            <strong>Resources</strong>
-            <Link href="/resources/insights">Insights</Link>
-            <Link href="/resources/articles">Articles</Link>
-            <Link href="/resources/faqs">FAQs</Link>
-            <Link href="/resources/media-downloads">Media & Downloads</Link>
-          </nav>
-
-          <div className="footer-column footer-focus">
-            <strong>Focus</strong>
-            {footerTagGroups.flatMap((group) => group.items).map((tag) => (
-              <span key={tag}>{tag}</span>
-            ))}
-          </div>
         </div>
 
         <div className="footer-bottom">

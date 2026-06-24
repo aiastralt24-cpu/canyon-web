@@ -6,15 +6,17 @@ export default function AboutPage() {
     <SiteFrame>
       <SimplePage
         eyebrow="About Canyon Data Labs"
+        heroClassName="about-hero"
         title={
           <>
-            An embedded partner
-            <br />
-            for enterprise clarity
+            <span className="inner-hero-title-line">An Embedded Partner</span>
+            <span className="inner-hero-title-line">
+              For <span className="inner-hero-title-accent">Enterprise Clarity</span>
+            </span>
           </>
         }
-        copy="Canyon Data Labs is an enterprise-wide data solutions company. We help organisations define their data strategy and execute it end-to-end, from putting the right systems in place, to building intelligence on top of the data they generate, to automating the checks that keep every critical process accountable."
-        cta="Get in Touch"
+        copy="Canyon Data Labs helps organisations turn business requirements into connected systems, decision intelligence, and accountable execution."
+        cta="Book a Discovery Workshop"
         ctaHref="/contact"
       />
       <AboutContent />
