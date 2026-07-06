@@ -670,7 +670,7 @@ export function CanyonGridExperience() {
             </h1>
             <p className="cg-hero-lead">
               The layer between your data and your decisions. Every data point structured around your rules, your
-              language, and your operations — reconciled, validated, and ready to act on.
+              language, and your operations, reconciled, validated, and ready to act on.
             </p>
           </div>
           <div className="cg-hero-visual">

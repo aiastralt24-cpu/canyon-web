@@ -200,7 +200,11 @@
   color: rgba(246, 241, 232, 0.8);
   font-size: clamp(0.98rem, 1.02vw, 1.08rem);
   line-height: 1.54;
-  max-width: 560px;
+  max-width: min(76ch, 100%);
+}
+
+.hero-copy .lead span {
+  display: block;
 }
 
 .hero-section .section-label {
@@ -1215,6 +1219,14 @@ main:has(.hero-section) + .site-footer {
     max-width: 30ch;
   }
 
+  .hero-copy .lead span {
+    display: inline;
+  }
+
+  .hero-copy .lead span + span::before {
+    content: " ";
+  }
+
   .hero-copy h1 {
     font-size: clamp(2rem, 8.4vw, 2.75rem);
     max-width: 18ch;
@@ -1548,6 +1560,10 @@ main:has(.hero-section) + .site-footer {
   line-height: 1.58;
   max-width: min(56ch, 100%);
   text-wrap: pretty;
+}
+
+.hero-copy .lead {
+  max-width: min(76ch, 100%);
 }
 
 .operating-header h2,

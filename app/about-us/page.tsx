@@ -15,7 +15,15 @@ export default function AboutPage() {
             </span>
           </>
         }
-        copy="Every purpose-built solution starts with understanding the business behind it. At Canyon, we take the time to learn how your organization truly works, uncover opportunities, and build solutions that create measurable and lasting impact."
+        copy={
+          <>
+            <span>Every purpose-built solution starts with understanding the business behind it.</span>
+            <span>
+              At Canyon, we take the time to learn how your organization truly works, uncover opportunities,
+            </span>
+            <span>and build solutions that create measurable and lasting impact.</span>
+          </>
+        }
       />
       <AboutContent />
     </SiteFrame>

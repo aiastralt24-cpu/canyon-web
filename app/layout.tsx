@@ -15,9 +15,9 @@ const sora = Sora({
 });
 
 export const metadata: Metadata = {
-  title: "Canyon Data Labs | Enterprise Data, Intelligence & Execution Partner",
+  title: "Canyon Data Labs | Purpose-Built Enterprise Solutions",
   description:
-    "Canyon Data Labs helps organizations connect enterprise information, create business context, and turn insights into measurable action through enterprise data, intelligence, and workflow solutions.",
+    "Canyon Data Labs helps organizations connect enterprise information, create business context, and turn insights into measurable action through enterprise data and workflow solutions.",
   metadataBase: new URL("https://canyon-data-labs.local")
 };
 

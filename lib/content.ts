@@ -77,7 +77,7 @@ export const solutionArchitecture = [
     name: "Canyon Edge",
     href: "/solutions/canyon-edge",
     step: "03",
-    verb: "Decide / Act",
+    verb: "Act",
     title: "Turn governed data into decisions.",
     copy:
       "Role intelligence, executive views, nudges, alerts, and plain-language answers help the right person move at the right moment.",

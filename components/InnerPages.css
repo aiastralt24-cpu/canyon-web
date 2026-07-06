@@ -208,6 +208,14 @@
   white-space: nowrap;
 }
 
+.about-hero .lead {
+  max-width: min(82ch, 100%);
+}
+
+.about-hero .lead span {
+  display: block;
+}
+
 .text-panel {
   background:
     linear-gradient(135deg, rgba(255, 250, 240, 0.88), rgba(255, 250, 240, 0.62));
@@ -3479,6 +3487,10 @@
   text-wrap: pretty;
 }
 
+.about-hero .lead {
+  max-width: min(82ch, 100%);
+}
+
 .about-overview-copy p:not(.section-label),
 .about-mission-grid p:not(.section-label),
 .about-work-card p,
@@ -3579,6 +3591,14 @@
 
   .about-hero h1 span {
     white-space: normal;
+  }
+
+  .about-hero .lead span {
+    display: inline;
+  }
+
+  .about-hero .lead span + span::before {
+    content: " ";
   }
 
   .inner-hero h1 {

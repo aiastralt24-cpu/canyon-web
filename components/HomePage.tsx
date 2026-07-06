@@ -26,8 +26,10 @@ export function HomePage() {
               <span className="hero-accent-line">Foundation of Every Decision</span>
             </h1>
             <p className="lead reveal">
-              Every business has untapped potential. The greatest opportunities often lie beneath the surface. We help
-              you uncover what&apos;s truly driving performance and build solutions that create lasting impact.
+              <span>Every business has untapped potential. The greatest opportunities often lie beneath the surface.</span>
+              <span>
+                We help you uncover what&apos;s truly driving performance and build solutions that create lasting impact.
+              </span>
             </p>
           </div>
         </div>

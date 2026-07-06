@@ -554,7 +554,7 @@ export function CanyonSystemsExperience() {
               Miss nothing.
             </h1>
             <p className="cs-hero-lead">
-              Smart execution systems that record every field visit, every order, and every customer interaction —
+              Smart execution systems that record every field visit, every order, and every customer interaction,
               structured and ready from day one. The foundation everything else is built on.
             </p>
           </div>

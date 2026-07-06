@@ -70,10 +70,24 @@ export function Header() {
 
         <nav className="desktop-nav" aria-label="Primary navigation">
           {primaryItems.map((item) => (
-            <div className="nav-group" key={item.label}>
-              <Link className="nav-link" href={item.href}>
+            <div className={`nav-group${item.label === "Solutions" ? " nav-group-dropdown" : ""}`} key={item.label}>
+              <Link
+                className="nav-link"
+                href={item.href}
+                aria-haspopup={item.label === "Solutions" ? "true" : undefined}
+              >
                 {item.label}
               </Link>
+              {item.label === "Solutions" && item.children ? (
+                <div className="nav-dropdown" aria-label="Solutions menu">
+                  {item.children.map(([label, href, description]) => (
+                    <Link className="nav-dropdown-link" href={href} key={href}>
+                      <span>{label}</span>
+                      {description ? <small>{description}</small> : null}
+                    </Link>
+                  ))}
+                </div>
+              ) : null}
             </div>
           ))}
         </nav>
@@ -127,11 +141,11 @@ export function Header() {
                   <Link href="/solutions/canyon-systems" onClick={() => setOpen(false)}>
                     Canyon Systems
                   </Link>
-                  <Link href="/solutions/canyon-edge" onClick={() => setOpen(false)}>
-                    Canyon Edge
-                  </Link>
                   <Link href="/solutions/canyon-grid" onClick={() => setOpen(false)}>
                     Canyon Grid
+                  </Link>
+                  <Link href="/solutions/canyon-edge" onClick={() => setOpen(false)}>
+                    Canyon Edge
                   </Link>
                 </div>
                 <div>

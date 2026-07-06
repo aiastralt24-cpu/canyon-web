@@ -925,7 +925,7 @@ export function CanyonEdgeExperience() {
             </h1>
             <p className="ce-hero-lead">
               The intelligence layer where data becomes decisions. Live insights for every role, proactive nudges before
-              problems form, and the ability to ask your data anything — in plain language, instantly.
+              problems form, and the ability to ask your data anything, in plain language, instantly.
             </p>
           </div>
           <div className="ce-hero-visual">
@@ -1108,12 +1108,12 @@ export function CanyonEdgeExperience() {
           <div className="ce-cta-shell">
             <div className="ce-cta-copy">
               <span className="ce-cta-kicker">Next step</span>
-              <h2 className="ce-cta-title">Ready to ask your data anything?</h2>
+              <h2 className="ce-cta-title">Ready to turn data into clearer decisions?</h2>
             </div>
             <div className="ce-cta-panel">
               <p className="ce-cta-body">
-                One conversation is all it takes to find out where Canyon Edge would change what your leadership decides
-                next.
+                In a focused discovery workshop, we identify where Canyon Edge can turn your data into clearer
+                leadership signals, faster decisions, and accountable action.
               </p>
               <div className="ce-cta-actions">
                 <Link className="btn primary" href="/contact#book-demo">
