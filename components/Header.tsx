@@ -47,6 +47,22 @@ export function Header() {
     };
   }, []);
 
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 981px)");
+    const closeDesktopMenu = () => {
+      if (mediaQuery.matches) {
+        setOpen(false);
+      }
+    };
+
+    closeDesktopMenu();
+    mediaQuery.addEventListener("change", closeDesktopMenu);
+
+    return () => {
+      mediaQuery.removeEventListener("change", closeDesktopMenu);
+    };
+  }, []);
+
   return (
     <header className={`site-header${scrolled ? " header-scrolled" : ""}`}>
       <div className="header-inner">
@@ -64,7 +80,7 @@ export function Header() {
 
         <div className="header-actions">
           <Link className="btn primary header-cta" href="/contact#book-demo">
-            Book a Discovery Workshop
+            Contact Us
           </Link>
 
           <button
@@ -142,7 +158,7 @@ export function Header() {
               </div>
 
               <Link className="mobile-contact-pill" href="/contact#book-demo" onClick={() => setOpen(false)}>
-                <span>Book a Discovery Workshop</span>
+                <span>Contact Us</span>
                 <span>Start A Conversation</span>
               </Link>
             </div>

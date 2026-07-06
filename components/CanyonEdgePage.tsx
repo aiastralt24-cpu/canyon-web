@@ -157,11 +157,8 @@ export function CanyonEdgePageContent() {
           </p>
           <div className={styles.actions}>
             <Link className={styles.primaryAction} href="/contact#book-demo">
-              Book a Discovery Workshop
+              Contact Us
             </Link>
-            <a className={styles.secondaryAction} href="#edge-modules">
-              See Canyon Edge
-            </a>
           </div>
         </div>
 

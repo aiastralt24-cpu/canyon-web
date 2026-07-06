@@ -9,15 +9,13 @@ export default function AboutPage() {
         heroClassName="about-hero"
         title={
           <>
-            <span className="inner-hero-title-line">An Embedded Partner</span>
+            <span className="inner-hero-title-line">Every Business Has Its Own Story.</span>
             <span className="inner-hero-title-line">
-              For <span className="inner-hero-title-accent">Enterprise Clarity</span>
+              We Build <span className="inner-hero-title-accent">Solutions Around It.</span>
             </span>
           </>
         }
-        copy="Canyon Data Labs helps organisations turn business requirements into connected systems, decision intelligence, and accountable execution."
-        cta="Book a Discovery Workshop"
-        ctaHref="/contact"
+        copy="Every purpose-built solution starts with understanding the business behind it. At Canyon, we take the time to learn how your organization truly works, uncover opportunities, and build solutions that create measurable and lasting impact."
       />
       <AboutContent />
     </SiteFrame>

@@ -228,6 +228,96 @@ dd {
   color: white;
 }
 
+.canyon-hero-glow {
+  background: radial-gradient(circle, rgba(148, 180, 193, 0.08), transparent 62%);
+  border-radius: 999px;
+  height: 420px;
+  left: -160px;
+  pointer-events: none;
+  position: absolute;
+  top: 24%;
+  width: 420px;
+  z-index: 0;
+}
+
+.canyon-strata-bg {
+  inset: 0;
+  opacity: 0.9;
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.canyon-strata-bg svg {
+  height: 100%;
+  min-width: 1600px;
+  width: 160%;
+}
+
+.canyon-strata-layer {
+  will-change: transform;
+}
+
+.canyon-strata-layer-a {
+  animation: canyonStrataDriftA 44s linear infinite alternate;
+}
+
+.canyon-strata-layer-b {
+  animation: canyonStrataDriftB 56s linear infinite alternate;
+}
+
+.canyon-strata-layer-c {
+  animation: canyonStrataDriftC 70s linear infinite alternate;
+}
+
+.canyon-strata-pulse-path {
+  animation: canyonStrataPulseTravel 6.1s linear infinite;
+  opacity: 0.95;
+  stroke-dasharray: 120 1480;
+  stroke-dashoffset: 0;
+}
+
+@keyframes canyonStrataDriftA {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-6%);
+  }
+}
+
+@keyframes canyonStrataDriftB {
+  from {
+    transform: translateX(-4%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes canyonStrataDriftC {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-3%);
+  }
+}
+
+@keyframes canyonStrataPulseTravel {
+  0% {
+    stroke-dashoffset: 0;
+  }
+
+  100% {
+    stroke-dashoffset: -1600;
+  }
+}
+
 .card {
   background: rgba(255, 253, 249, 0.78);
   border: 1px solid var(--border);

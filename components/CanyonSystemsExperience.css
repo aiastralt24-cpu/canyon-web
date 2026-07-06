@@ -56,20 +56,53 @@
 /* ── HERO (dark navy — matches the site's other inner-page heroes) ── */
 .cs-hero {
   background:
-    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    radial-gradient(circle at 80% 16%, rgba(247, 145, 75, 0.11), transparent 32%),
-    linear-gradient(135deg, #040d14 0%, #07131c 58%, #121311 100%);
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    radial-gradient(circle at 78% 18%, rgba(247, 145, 75, 0.11), transparent 30%),
+    linear-gradient(135deg, #040d14 0%, #07131c 58%, #10110f 100%);
   background-size: 44px 44px, 44px 44px, auto, auto;
   background-color: var(--navy-deep);
   color: #fff;
   align-items: center;
   display: grid;
+  isolation: isolate;
   min-height: 100svh;
+  overflow: hidden;
   padding: clamp(112px, 12vh, 138px) 0 clamp(62px, 8vh, 86px);
+  position: relative;
+}
+
+.cs-hero::before,
+.cs-hero::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
+
+.cs-hero::before {
+  background:
+    linear-gradient(90deg, rgba(4, 13, 20, 0.94) 0%, rgba(4, 13, 20, 0.72) 42%, rgba(4, 13, 20, 0.28) 68%, rgba(4, 13, 20, 0.78) 100%),
+    linear-gradient(180deg, rgba(4, 13, 20, 0.1), rgba(4, 13, 20, 0.9));
+  background-position: center, center;
+  background-size: cover, cover;
+  inset: 0;
+  opacity: 0.72;
+}
+
+.cs-hero::after {
+  background: linear-gradient(105deg, transparent 0%, rgba(247, 145, 75, 0.09) 45%, transparent 70%);
+  height: 145%;
+  left: 64%;
+  top: -25%;
+  transform: rotate(10deg);
+  width: 28%;
+  z-index: 0;
 }
 
 .cs-hero-grid {
+  position: relative;
+  z-index: 2;
   display: grid;
   grid-template-columns: minmax(0, 0.86fr) minmax(360px, 1fr);
   gap: clamp(42px, 6vw, 86px);
@@ -2272,7 +2305,7 @@
   }
 }
 
-/* Hide product headline and calm preview pointer weight */
+/* Hide product headline and keep emphasis only on the selected preview */
 .cs-product-title {
   display: none;
 }
@@ -2281,9 +2314,25 @@
   margin-top: clamp(8px, 1.2vh, 14px);
 }
 
-.cs-fi-name,
-.cs-feature-item.active-feature .cs-fi-name {
+.cs-fi-media {
   font-weight: 520;
+}
+
+.cs-fi-name {
+  color: rgba(61, 73, 87, 0.78);
+  font-size: clamp(0.96rem, 1.02vw, 1.12rem);
+  font-weight: 430;
+  line-height: 1.28;
+}
+
+.cs-feature-item.active-feature .cs-fi-media {
+  font-weight: 760;
+}
+
+.cs-feature-item.active-feature .cs-fi-name {
+  color: var(--cs-ink);
+  font-size: clamp(1.04rem, 1.16vw, 1.28rem);
+  font-weight: 680;
 }
 
 /* CTA redesign */

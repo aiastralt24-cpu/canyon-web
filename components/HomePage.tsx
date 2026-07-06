@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { advantagePillars } from "@/lib/content";
+import { CanyonHeroBackground } from "./CanyonHeroBackground";
 import "./HomePage.css";
 
 const signalSources = [
@@ -16,38 +17,18 @@ export function HomePage() {
   return (
     <>
       <section className="hero-section">
-        <div className="hero-contours" aria-hidden="true">
-          <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
-            <path className="contour-line contour-a" d="M-120 210 C 220 155, 440 285, 720 222 S 1240 132, 1720 214" />
-            <path className="contour-line contour-b" d="M-120 292 C 245 236, 462 366, 748 305 S 1258 218, 1720 296" />
-            <path className="contour-line contour-c" d="M-120 650 C 260 594, 506 725, 802 654 S 1308 568, 1720 642" />
-            <path className="contour-line contour-d" d="M-120 740 C 282 690, 520 812, 820 742 S 1318 658, 1720 735" />
-          </svg>
-        </div>
-        <div className="hero-atmosphere" aria-hidden="true">
-          <span />
-          <span />
-          <span />
-        </div>
+        <CanyonHeroBackground />
         <div className="container hero-grid">
           <div className="hero-copy">
-            <p className="section-label reveal">INSIGHTS. DECISIONS. GROWTH.</p>
+            <p className="section-label reveal">Purpose-Built Enterprise Solutions</p>
             <h1 className="reveal">
-              <span>Raw Data To</span>
-              <span className="hero-accent-line">Boardroom Decision</span>
+              <span>We Build The</span>
+              <span className="hero-accent-line">Foundation of Every Decision</span>
             </h1>
             <p className="lead reveal">
-              Canyon Data Labs connects business information, decision context, and execution accountability onto a
-              common platform across the organization.
+              Every business has untapped potential. The greatest opportunities often lie beneath the surface. We help
+              you uncover what&apos;s truly driving performance and build solutions that create lasting impact.
             </p>
-            <div className="button-row reveal">
-              <Link className="btn primary" href="/contact#book-demo">
-                Book a Discovery Workshop
-              </Link>
-              <Link className="btn secondary" href="/solutions">
-                Explore Solutions
-              </Link>
-            </div>
           </div>
         </div>
       </section>
@@ -70,15 +51,13 @@ export function HomePage() {
 
           <div className="operating-flow" aria-label="Canyon operating model">
             <svg className="operating-flow-lines" viewBox="0 0 1200 420" preserveAspectRatio="none" aria-hidden="true">
-              <path className="input-line line-a" d="M315 52 C430 52 520 178 600 210" />
-              <path className="input-line line-b" d="M315 116 C434 116 528 188 600 210" />
-              <path className="input-line line-c" d="M315 180 C446 180 540 202 600 210" />
-              <path className="input-line line-d" d="M315 244 C446 244 540 218 600 210" />
-              <path className="input-line line-e" d="M315 308 C434 308 528 232 600 210" />
-              <path className="input-line line-f" d="M315 372 C430 372 520 242 600 210" />
-              <path className="decision-line decision-top" d="M600 210 C704 116 796 70 914 70" />
-              <path className="decision-line decision-mid" d="M600 210 L914 210" />
-              <path className="decision-line decision-bottom" d="M600 210 C704 304 796 350 914 350" />
+              <path className="input-line line-a" d="M285 74 C412 74 520 178 600 210" />
+              <path className="input-line line-b" d="M285 126 C420 126 528 188 600 210" />
+              <path className="input-line line-c" d="M285 178 C436 178 540 202 600 210" />
+              <path className="input-line line-d" d="M285 230 C436 230 540 218 600 210" />
+              <path className="input-line line-e" d="M285 282 C420 282 528 232 600 210" />
+              <path className="input-line line-f" d="M285 334 C412 334 520 242 600 210" />
+              <path className="decision-line decision-trunk" d="M600 210 L830 210" />
             </svg>
 
             <div className="operating-inputs" aria-label="Enterprise systems">
@@ -162,9 +141,6 @@ export function HomePage() {
           <div className="button-row final-cta-actions">
             <Link className="btn primary" href="/contact#book-demo">
               Book a Discovery Workshop
-            </Link>
-            <Link className="btn secondary" href="/solutions">
-              Explore Solution
             </Link>
           </div>
         </div>

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { type KeyboardEvent, useState } from "react";
+import { CanyonHeroBackground } from "./CanyonHeroBackground";
 import "./CanyonEdgeExperience.css";
 
 /* ── colour tokens (resolve against CSS vars defined on .ce) ── */
@@ -913,6 +914,7 @@ export function CanyonEdgeExperience() {
     <div className="ce">
       {/* HERO */}
       <section className="ce-hero">
+        <CanyonHeroBackground />
         <div className="container ce-hero-grid">
           <div className="ce-hero-copy">
             <p className="section-label">CANYON EDGE</p>
@@ -925,14 +927,6 @@ export function CanyonEdgeExperience() {
               The intelligence layer where data becomes decisions. Live insights for every role, proactive nudges before
               problems form, and the ability to ask your data anything — in plain language, instantly.
             </p>
-            <div className="ce-hero-actions">
-              <Link className="btn primary" href="/contact#book-demo">
-                Book a Discovery Workshop
-              </Link>
-              <a className="btn secondary" href="#ce-products">
-                See Canyon Edge
-              </a>
-            </div>
           </div>
           <div className="ce-hero-visual">
             <div className="ce-mini-shell">

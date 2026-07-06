@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { solutionArchitecture, solutionDetails, solutions } from "@/lib/content";
+import { CanyonHeroBackground } from "./CanyonHeroBackground";
 import "./InnerPages.css";
 
 type SimplePageProps = {
@@ -7,9 +8,9 @@ type SimplePageProps = {
   title: React.ReactNode;
   copy: React.ReactNode;
   heroClassName?: string;
-  cta?: string;
+  cta?: string | null;
   ctaHref?: string;
-  secondaryCta?: string;
+  secondaryCta?: string | null;
   secondaryHref?: string;
   children?: React.ReactNode;
 };
@@ -19,29 +20,32 @@ export function SimplePage({
   title,
   copy,
   heroClassName,
-  cta = "Book a Discovery Workshop",
+  cta = null,
   ctaHref = "/contact#book-demo",
-  secondaryCta = "Explore Solutions",
+  secondaryCta = null,
   secondaryHref = "/solutions",
   children
 }: SimplePageProps) {
   return (
     <>
       <section className={["inner-hero", heroClassName].filter(Boolean).join(" ")}>
-        <div className="inner-hero-glow" aria-hidden="true" />
-        <StrataBackground />
+        <CanyonHeroBackground />
         <div className="container inner-hero-grid">
           <div className="inner-hero-copy">
             <p className="section-label reveal">{eyebrow}</p>
             <h1 className="reveal">{title}</h1>
             <p className="lead reveal">{copy}</p>
             <div className="button-row reveal">
-              <Link className="btn primary" href={ctaHref}>
-                {cta}
-              </Link>
-              <Link className="btn secondary" href={secondaryHref}>
-                {secondaryCta}
-              </Link>
+              {cta ? (
+                <Link className="btn primary" href={ctaHref}>
+                  {cta}
+                </Link>
+              ) : null}
+              {secondaryCta ? (
+                <Link className="btn secondary" href={secondaryHref}>
+                  {secondaryCta}
+                </Link>
+              ) : null}
             </div>
           </div>
         </div>
@@ -214,16 +218,19 @@ export function AboutContent() {
                 d="M40 118 C 205 120 270 76 424 70 C 558 64 602 106 694 124 C 812 148 914 93 1120 84"
               />
               <g className="about-pipe-marker">
-                <line x1="156" y1="118" x2="156" y2="202" />
-                <circle cx="156" cy="118" r="10" />
+                <line x1="156" y1="134" x2="156" y2="202" />
+                <circle className="about-pipe-marker-ring" cx="156" cy="118" r="15" />
+                <circle className="about-pipe-marker-core" cx="156" cy="118" r="8" />
               </g>
               <g className="about-pipe-marker">
-                <line x1="575" y1="96" x2="575" y2="202" />
-                <circle cx="575" cy="96" r="10" />
+                <line x1="575" y1="112" x2="575" y2="202" />
+                <circle className="about-pipe-marker-ring" cx="575" cy="96" r="15" />
+                <circle className="about-pipe-marker-core" cx="575" cy="96" r="8" />
               </g>
               <g className="about-pipe-marker">
-                <line x1="995" y1="86" x2="995" y2="202" />
-                <circle cx="995" cy="86" r="10" />
+                <line x1="995" y1="102" x2="995" y2="202" />
+                <circle className="about-pipe-marker-ring" cx="995" cy="86" r="15" />
+                <circle className="about-pipe-marker-core" cx="995" cy="86" r="8" />
               </g>
             </svg>
           </div>
@@ -449,7 +456,7 @@ export function SolutionDetail({ name }: { name: string }) {
             <h2>{detail.headline}</h2>
             <p>{detail.copy}</p>
             <Link className="btn primary" href="/contact#book-demo">
-              Book a Discovery Workshop
+              Contact Us
             </Link>
           </div>
           <SolutionVisual variant={detail.visual} />
@@ -709,7 +716,7 @@ export function ContactContent() {
     <section className="section contact-section" id="book-demo">
       <div className="container contact-panel reveal">
         <div className="contact-copy">
-          <p className="section-label">Book a Discovery Workshop</p>
+          <p className="section-label">Contact Us</p>
           <h2>What should the first conversation clarify?</h2>
           <p className="lead">
             Bring the decision, system, or operating gap that keeps resurfacing. Canyon will help frame the first
@@ -730,7 +737,12 @@ export function ContactContent() {
             </div>
           </dl>
         </div>
-        <form className="contact-form contact-workshop-form">
+        <form
+          action="mailto:hello@canyondatalabs.com?subject=Canyon%20Data%20Labs%20enquiry"
+          className="contact-form contact-workshop-form"
+          encType="text/plain"
+          method="post"
+        >
           <label htmlFor="contactName">
             Name
             <input id="contactName" name="name" placeholder="Your name" required suppressHydrationWarning />
@@ -801,9 +813,6 @@ export function ThankYouContent() {
       <div className="container text-panel reveal">
         <p className="section-label">Next Step</p>
         <h2>We will review the business priority and respond with a clear path forward.</h2>
-        <Link className="btn primary" href="/solutions">
-          Explore Solutions
-        </Link>
       </div>
     </section>
   );

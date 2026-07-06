@@ -8,8 +8,6 @@ export default function ThankYouPage() {
         eyebrow="Thank You"
         title="Your request is with Canyon."
         copy="Our team will review the priority and share a clear next step."
-        cta="Explore Solutions"
-        ctaHref="/solutions"
         secondaryCta="Return Home"
         secondaryHref="/"
       />

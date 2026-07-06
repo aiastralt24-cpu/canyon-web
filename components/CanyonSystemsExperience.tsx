@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { type KeyboardEvent, useState } from "react";
+import { CanyonHeroBackground } from "./CanyonHeroBackground";
 import "./CanyonSystemsExperience.css";
 
 /* ── colour tokens (resolve against CSS vars defined on .cs) ── */
@@ -541,6 +542,7 @@ export function CanyonSystemsExperience() {
     <div className="cs">
       {/* HERO */}
       <section className="cs-hero">
+        <CanyonHeroBackground />
         <div className="container cs-hero-grid">
           <div className="cs-hero-copy">
             <p className="section-label">CANYON SYSTEMS</p>
@@ -555,14 +557,6 @@ export function CanyonSystemsExperience() {
               Smart execution systems that record every field visit, every order, and every customer interaction —
               structured and ready from day one. The foundation everything else is built on.
             </p>
-            <div className="cs-hero-actions">
-              <Link className="btn primary" href="/contact#book-demo">
-                Book a Discovery Workshop
-              </Link>
-              <a className="btn secondary" href="#cs-products">
-                See Canyon Systems
-              </a>
-            </div>
           </div>
           <div className="cs-hero-visual">
             <div className="cs-mini-shell">

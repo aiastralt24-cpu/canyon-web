@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { type KeyboardEvent, useState } from "react";
+import { CanyonHeroBackground } from "./CanyonHeroBackground";
 import "./CanyonGridExperience.css";
 
 /* ── colour tokens (resolve against CSS vars defined on .cg) ── */
@@ -658,6 +659,7 @@ export function CanyonGridExperience() {
     <div className="cg">
       {/* HERO */}
       <section className="cg-hero">
+        <CanyonHeroBackground />
         <div className="container cg-hero-grid">
           <div className="cg-hero-copy">
             <p className="section-label">CANYON GRID</p>
@@ -670,14 +672,6 @@ export function CanyonGridExperience() {
               The layer between your data and your decisions. Every data point structured around your rules, your
               language, and your operations — reconciled, validated, and ready to act on.
             </p>
-            <div className="cg-hero-actions">
-              <Link className="btn primary" href="/contact#book-demo">
-                Book a Discovery Workshop
-              </Link>
-              <a className="btn secondary" href="#cg-products">
-                See Canyon Grid
-              </a>
-            </div>
           </div>
           <div className="cg-hero-visual">
             <div className="cg-mini-shell">

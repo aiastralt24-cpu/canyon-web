@@ -147,6 +147,11 @@
   z-index: 2;
 }
 
+.inner-hero > .container {
+  position: relative;
+  z-index: 2;
+}
+
 .inner-hero-copy {
   max-width: 760px;
 }
@@ -725,7 +730,7 @@
 .about-pipe-active {
   fill: none;
   stroke-linecap: round;
-  stroke-width: 3.2;
+  stroke-width: 2.2;
 }
 
 .about-pipe-base {
@@ -734,23 +739,29 @@
 
 .about-pipe-active {
   animation: aboutApproachLine 4.8s ease-in-out infinite;
-  opacity: 0.85;
+  opacity: 0.72;
   stroke: #f7914b;
   stroke-dasharray: 150 1080;
-  stroke-width: 4.2;
+  stroke-width: 2.8;
 }
 
 .about-pipe-marker line {
-  stroke: rgba(247, 145, 75, 0.34);
-  stroke-dasharray: 5 12;
+  stroke: rgba(247, 145, 75, 0.38);
+  stroke-dasharray: 3 10;
   stroke-linecap: round;
-  stroke-width: 1.6;
+  stroke-width: 1.4;
 }
 
-.about-pipe-marker circle {
+.about-pipe-marker-ring {
   fill: #07131c;
   stroke: #f7914b;
-  stroke-width: 4;
+  stroke-width: 3.2;
+}
+
+.about-pipe-marker-core {
+  fill: #f7914b;
+  stroke: #f7914b;
+  stroke-width: 0;
 }
 
 .about-steps {
@@ -2204,7 +2215,7 @@
   border-radius: 22px;
   box-shadow: 0 28px 80px rgba(0, 0, 0, 0.24);
   display: grid;
-  gap: 14px;
+  gap: 12px;
   padding: clamp(20px, 2.5vw, 30px);
   max-width: 560px;
   width: 100%;
@@ -2237,7 +2248,7 @@
   font-size: 1rem;
   font-weight: 500;
   letter-spacing: 0;
-  min-height: 56px;
+  min-height: 50px;
   outline: none;
   padding: 0 16px;
   text-transform: none;
@@ -2276,7 +2287,7 @@
 .contact-chip-field {
   border: 0;
   display: grid;
-  gap: 12px;
+  gap: 10px;
   margin: 0;
   padding: 0;
 }
@@ -2292,7 +2303,7 @@
 
 .contact-chip-group {
   display: grid;
-  gap: 10px;
+  gap: 8px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
@@ -2311,16 +2322,16 @@
   align-items: center;
   background: rgba(14, 22, 32, 0.72);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 12px;
+  border-radius: 10px;
   color: rgba(255, 255, 255, 0.74);
   cursor: pointer;
   display: flex;
-  font-size: 0.9rem;
+  font-size: clamp(0.82rem, 0.88vw, 0.9rem);
   font-weight: 620;
   justify-content: center;
   line-height: 1.15;
-  min-height: 48px;
-  padding: 0 14px;
+  min-height: 42px;
+  padding: 9px 12px;
   text-align: center;
   transition: background 150ms ease, border-color 150ms ease, color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
   width: 100%;
@@ -2339,7 +2350,7 @@
 }
 
 .contact-form textarea {
-  min-height: 126px;
+  min-height: 112px;
   padding-block: 15px;
   resize: vertical;
 }
@@ -2610,9 +2621,6 @@
 
   .contact-section {
     padding: 92px 0 24px;
-    max-height: calc(100svh - 1px);
-    overflow: auto;
-    overscroll-behavior: contain;
   }
 
   .contact-panel {
@@ -2642,10 +2650,7 @@
   .contact-form {
     border-radius: 18px;
     gap: 10px;
-    max-height: 48vh;
     max-width: none;
-    overflow: auto;
-    overscroll-behavior: contain;
     padding: 14px;
   }
 
@@ -3043,49 +3048,97 @@
   border-radius: 20px;
   box-shadow: 0 24px 70px -54px rgba(83, 59, 26, 0.34);
   display: grid;
-  gap: 16px;
-  padding: clamp(24px, 3vw, 36px);
+  gap: 18px;
+  padding: clamp(22px, 2.8vw, 32px);
 }
 
 .careers-apply-form label {
   color: rgba(7, 19, 28, 0.78);
   display: grid;
-  font-size: 0.86rem;
-  font-weight: 720;
-  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 620;
+  gap: 9px;
 }
 
 .careers-apply-form input,
 .careers-apply-form select,
 .careers-apply-form textarea {
-  background: rgba(255, 253, 248, 0.78);
-  border: 1px solid rgba(7, 19, 28, 0.12);
-  border-radius: 12px;
+  background: rgba(255, 253, 248, 0.74);
+  border: 1px solid rgba(7, 19, 28, 0.14);
+  border-radius: 14px;
   color: var(--navy);
-  font: inherit;
-  min-height: 52px;
-  padding: 0 16px;
-  transition: border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+  font-family: var(--font-inter), Inter, system-ui, sans-serif;
+  font-size: 0.98rem;
+  font-weight: 480;
+  min-height: 58px;
+  padding: 0 18px;
+  transition: background 150ms ease, border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
   width: 100%;
 }
 
 .careers-apply-form input::placeholder,
 .careers-apply-form textarea::placeholder {
-  color: rgba(7, 19, 28, 0.38);
+  color: rgba(7, 19, 28, 0.34);
+  font-weight: 430;
+}
+
+.careers-apply-form select {
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, rgba(7, 19, 28, 0.62) 50%),
+    linear-gradient(135deg, rgba(7, 19, 28, 0.62) 50%, transparent 50%);
+  background-position:
+    calc(100% - 22px) 51%,
+    calc(100% - 15px) 51%;
+  background-repeat: no-repeat;
+  background-size: 7px 7px, 7px 7px;
+  padding-right: 48px;
 }
 
 .careers-apply-form input:focus-visible,
 .careers-apply-form select:focus-visible,
 .careers-apply-form textarea:focus-visible {
+  background: rgba(255, 253, 248, 0.9);
   border-color: #f7914b;
   box-shadow: 0 0 0 3px rgba(247, 145, 75, 0.18);
   outline: none;
   transform: translateY(-1px);
 }
 
+.careers-apply-form input[type="file"] {
+  align-items: center;
+  color: rgba(7, 19, 28, 0.5);
+  cursor: pointer;
+  display: flex;
+  font-size: 0.92rem;
+  min-height: 62px;
+  padding: 10px 14px;
+}
+
+.careers-apply-form input[type="file"]::file-selector-button {
+  background: rgba(247, 145, 75, 0.13);
+  border: 1px solid rgba(247, 145, 75, 0.34);
+  border-radius: 999px;
+  color: var(--navy);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 620;
+  margin-right: 14px;
+  min-height: 38px;
+  padding: 0 16px;
+  transition: background 150ms ease, border-color 150ms ease, transform 150ms ease;
+}
+
+.careers-apply-form input[type="file"]::file-selector-button:hover {
+  background: rgba(247, 145, 75, 0.22);
+  border-color: rgba(247, 145, 75, 0.5);
+  transform: translateY(-1px);
+}
+
 .careers-apply-form textarea {
-  min-height: 120px;
-  padding: 14px 16px;
+  min-height: 138px;
+  padding: 16px 18px;
   resize: vertical;
 }
 
@@ -3095,7 +3148,10 @@
 
 .careers-apply-form .btn {
   justify-self: start;
-  margin-top: 4px;
+  margin-top: 2px;
+  min-height: 54px;
+  min-width: 0;
+  padding: 0 26px;
 }
 
 .careers-pillar p {
