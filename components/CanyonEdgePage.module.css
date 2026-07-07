@@ -198,7 +198,8 @@
 }
 
 .answerCard {
-  min-width: 260px;
+  min-width: 0;
+  flex: 1 1 auto;
   border: 1px solid rgba(246, 241, 232, 0.12);
   border-radius: 14px;
   padding: 16px;

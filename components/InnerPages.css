@@ -648,8 +648,8 @@
 
 .about-process-section {
   background:
-    radial-gradient(circle at 44% 16%, rgba(25, 59, 65, 0.28), transparent 36%),
-    radial-gradient(circle at 88% 88%, rgba(247, 145, 75, 0.08), transparent 30%),
+    radial-gradient(circle at 44% 16%, rgba(25, 59, 65, 0.2), transparent 34%),
+    radial-gradient(circle at 88% 88%, rgba(247, 145, 75, 0.055), transparent 28%),
     linear-gradient(180deg, #06151b 0%, #07131c 100%);
   color: #fffaf0;
   overflow: hidden;
@@ -721,83 +721,112 @@
   max-width: min(58ch, 100%);
 }
 
-.about-pipeline {
-  height: clamp(92px, 12vh, 138px);
-  margin: 0 auto clamp(12px, 2.4vh, 28px);
+.about-steps-wrap {
+  margin: 0 auto;
+  position: relative;
   width: min(1120px, 100%);
 }
 
-.about-pipeline svg {
+.about-steps-signal {
+  height: 120px;
+  inset: 20px 0 auto;
+  margin-inline: auto;
+  opacity: 0.44;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  z-index: 0;
+}
+
+.about-steps-signal svg {
   display: block;
   height: 100%;
   overflow: visible;
   width: 100%;
 }
 
-.about-pipe-base,
-.about-pipe-active {
+.about-signal-base,
+.about-signal-pulse {
   fill: none;
+  stroke: #f7914b;
   stroke-linecap: round;
-  stroke-width: 2.2;
 }
 
-.about-pipe-base {
-  stroke: #f7914b;
+.about-signal-base {
+  opacity: 0.2;
+  stroke-width: 1.35;
 }
 
-.about-pipe-active {
-  animation: aboutApproachLine 4.8s ease-in-out infinite;
-  opacity: 0.72;
-  stroke: #f7914b;
-  stroke-dasharray: 150 1080;
-  stroke-width: 2.8;
-}
-
-.about-pipe-marker line {
-  stroke: rgba(247, 145, 75, 0.38);
-  stroke-dasharray: 3 10;
-  stroke-linecap: round;
-  stroke-width: 1.4;
-}
-
-.about-pipe-marker-ring {
-  fill: #07131c;
-  stroke: #f7914b;
-  stroke-width: 3.2;
-}
-
-.about-pipe-marker-core {
-  fill: #f7914b;
-  stroke: #f7914b;
-  stroke-width: 0;
+.about-signal-pulse {
+  animation: aboutSignalTravel 7.2s linear infinite;
+  filter: drop-shadow(0 0 7px rgba(247, 145, 75, 0.2));
+  opacity: 0.74;
+  stroke-dasharray: 76 1150;
+  stroke-dashoffset: 0;
+  stroke-width: 1.9;
 }
 
 .about-steps {
   display: grid;
-  gap: clamp(24px, 4vw, 54px);
+  gap: clamp(16px, 2.3vw, 24px);
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin: 0 auto;
-  width: min(1120px, 100%);
+  position: relative;
+  z-index: 1;
+}
+
+.about-steps article {
+  background:
+    linear-gradient(180deg, rgba(12, 26, 36, 0.97), rgba(12, 24, 32, 0.94));
+  border: 1px solid rgba(255, 250, 240, 0.13);
+  box-shadow: 0 24px 70px -58px rgba(0, 0, 0, 0.72);
+  min-height: 210px;
+  padding: clamp(24px, 3vw, 34px);
+  position: relative;
+}
+
+.about-steps article::after {
+  animation: aboutSignalDotGlow 7.2s linear infinite;
+  background:
+    radial-gradient(circle, #f7914b 0 6px, transparent 6.5px),
+    radial-gradient(circle, transparent 0 15px, rgba(247, 145, 75, 0.48) 15.5px 17px, transparent 17.5px);
+  border: 0;
+  border-radius: 999px;
+  content: "";
+  height: 36px;
+  pointer-events: none;
+  position: absolute;
+  right: clamp(20px, 3vw, 32px);
+  top: -18px;
+  width: 36px;
+}
+
+.about-steps article:nth-child(2)::after {
+  animation-delay: 2.35s;
+}
+
+.about-steps article:nth-child(3)::after {
+  animation-delay: 4.7s;
 }
 
 .about-steps h3 {
-  align-items: baseline;
+  align-items: start;
   color: #fff6e8;
   display: grid;
   font-size: clamp(1.18rem, 1.55vw, 1.7rem);
   font-weight: 560;
-  gap: 12px;
-  grid-template-columns: auto 1fr;
+  gap: clamp(16px, 2vw, 22px);
+  grid-template-columns: 1fr;
   letter-spacing: -0.022em;
   line-height: 1.12;
-  margin: 0 0 clamp(14px, 1.8vh, 18px);
+  margin: 0 0 clamp(18px, 2.4vh, 24px);
 }
 
 .about-steps h3 span {
   color: #f7914b;
-  font-size: clamp(0.68rem, 0.86vw, 0.82rem);
+  display: block;
+  font-size: clamp(0.72rem, 0.9vw, 0.86rem);
   font-weight: 760;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
 }
 
 .about-steps p {
@@ -809,17 +838,24 @@
   max-width: 32ch;
 }
 
-@keyframes aboutApproachLine {
-  0% {
-    stroke-dashoffset: 520;
+@keyframes aboutSignalTravel {
+  to {
+    stroke-dashoffset: -1238;
   }
+}
 
-  55% {
-    stroke-dashoffset: 0;
-  }
-
+@keyframes aboutSignalDotGlow {
+  0%,
+  72%,
   100% {
-    stroke-dashoffset: -520;
+    opacity: 0.7;
+    transform: scale(1);
+  }
+
+  8%,
+  18% {
+    opacity: 1;
+    transform: scale(1.08);
   }
 }
 
@@ -2212,6 +2248,7 @@
   font-weight: 520;
   line-height: 1.45;
   margin: 0;
+  overflow-wrap: anywhere;
 }
 
 .contact-form {
@@ -2545,8 +2582,12 @@
     margin-inline: -18px;
   }
 
-  .about-pipeline {
+  .about-steps-signal {
     display: none;
+  }
+
+  .about-steps-wrap {
+    margin-left: 0;
   }
 
   .about-steps {
@@ -2556,8 +2597,16 @@
   }
 
   .about-steps article {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    min-height: 0;
     padding: 0 0 28px 24px;
     position: relative;
+  }
+
+  .about-steps article::after {
+    content: none;
   }
 
   .about-steps article::before {
@@ -3076,12 +3125,19 @@
   border-radius: 14px;
   color: var(--navy);
   font-family: var(--font-inter), Inter, system-ui, sans-serif;
-  font-size: 0.98rem;
+  font-size: 1rem;
   font-weight: 480;
   min-height: 58px;
   padding: 0 18px;
   transition: background 150ms ease, border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
   width: 100%;
+}
+
+@media (max-width: 480px) {
+  .contact-meta-list div {
+    gap: 6px;
+    grid-template-columns: 1fr;
+  }
 }
 
 .careers-apply-form input::placeholder,

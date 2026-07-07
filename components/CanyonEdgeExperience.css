@@ -1318,8 +1318,10 @@
 }
 
 .ce-ask-send {
-  width: 30px;
-  height: 30px;
+  min-width: 44px;
+  min-height: 44px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: var(--ce-accent);
   border: none;
@@ -2295,14 +2297,14 @@
   }
 }
 
-/* Final CTA system: calm beige close, aligned with the product-page rhythm. */
+/* Final CTA system: single premium card, no bracket treatment. */
 .ce-cta {
   background:
-    radial-gradient(circle at 86% 18%, rgba(247, 145, 75, 0.1), transparent 28%),
-    linear-gradient(180deg, #fbf6ed 0%, #f3eadc 100%);
+    radial-gradient(circle at 86% 18%, rgba(247, 145, 75, 0.12), transparent 30%),
+    linear-gradient(180deg, #fbf6ed 0%, #f5ecdf 100%);
   border-top: 1px solid rgba(213, 183, 132, 0.32);
   color: var(--ce-ink);
-  padding: clamp(52px, 7vh, 78px) 0;
+  padding: clamp(78px, 10vh, 108px) 0 clamp(54px, 8vh, 84px);
 }
 
 .ce-cta::before {
@@ -2326,11 +2328,28 @@
 
 .ce-cta-shell {
   align-items: center;
-  border-top: 1px solid rgba(213, 183, 132, 0.54);
+  background:
+    radial-gradient(circle at 88% 14%, rgba(247, 145, 75, 0.26), transparent 34%),
+    linear-gradient(135deg, #07131c 0%, #101f28 58%, #172832 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 26px;
+  box-shadow: 0 28px 70px -44px rgba(7, 19, 28, 0.72);
   display: grid;
-  gap: clamp(32px, 5vw, 76px);
-  grid-template-columns: minmax(340px, 0.86fr) minmax(380px, 0.78fr);
-  padding-top: clamp(28px, 4vh, 42px);
+  gap: clamp(24px, 4vw, 58px);
+  grid-template-columns: minmax(300px, 0.9fr) minmax(340px, 0.78fr);
+  overflow: hidden;
+  padding: clamp(30px, 4.6vw, 58px);
+  position: relative;
+}
+
+.ce-cta-shell::before {
+  background: #f7914b;
+  content: "";
+  height: 4px;
+  left: clamp(30px, 4.6vw, 58px);
+  position: absolute;
+  top: 0;
+  width: 84px;
 }
 
 .ce-cta-copy {
@@ -2348,27 +2367,27 @@
 }
 
 .ce-cta-title {
-  color: var(--ce-ink);
-  font-size: clamp(2.2rem, 3.45vw, 3.85rem);
+  color: #fffaf2;
+  font-size: clamp(2.15rem, 3.8vw, 4rem);
   font-weight: 680;
-  letter-spacing: 0;
-  line-height: 1.03;
+  letter-spacing: -0.025em;
+  line-height: 1;
   margin: 0;
-  max-width: 12ch;
+  max-width: 13ch;
 }
 
 .ce-cta-panel {
-  background:
-    linear-gradient(135deg, rgba(255, 253, 248, 0.76), rgba(255, 250, 241, 0.5));
-  border-radius: 0 22px 22px 0;
-  box-shadow: 0 24px 60px -52px rgba(7, 19, 28, 0.38);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  box-shadow: none;
   display: grid;
-  gap: 20px;
+  gap: 22px;
   padding: clamp(22px, 3vw, 32px) clamp(22px, 3vw, 34px);
 }
 
 .ce-cta-body {
-  color: rgba(7, 19, 28, 0.68);
+  color: rgba(255, 250, 242, 0.78);
   font-size: clamp(1rem, 1.08vw, 1.12rem);
   font-weight: 560;
   line-height: 1.6;
@@ -2392,18 +2411,20 @@
 
 .ce-cta .btn.primary {
   background: #f7914b;
-  box-shadow: 0 18px 40px -28px rgba(247, 145, 75, 0.7);
+  color: #07131c;
+  box-shadow: 0 18px 40px -28px rgba(247, 145, 75, 0.95);
 }
 
 .ce-cta .btn.secondary {
-  background: transparent;
-  border-color: rgba(7, 19, 28, 0.26);
-  color: var(--ce-ink);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.22);
+  color: #fffaf2;
 }
 
 .ce-cta .btn.secondary:hover,
 .ce-cta .btn.secondary:focus-visible {
-  border-color: rgba(7, 19, 28, 0.44);
+  border-color: rgba(255, 255, 255, 0.44);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 @media (max-width: 820px) {
@@ -2416,7 +2437,7 @@
   }
 
   .ce-cta-panel {
-    padding-left: 22px;
+    padding: 22px;
   }
 }
 

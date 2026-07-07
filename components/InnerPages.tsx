@@ -196,7 +196,6 @@ export function AboutContent() {
       </section>
 
       <section className="about-process-section" id="our-approach">
-        <StrataBackground />
         <div className="container">
           <div className="about-process-head reveal">
             <p className="section-label">Our Approach</p>
@@ -207,52 +206,39 @@ export function AboutContent() {
             </h2>
             <p>One continuous motion from scattered signals to accountable action.</p>
           </div>
-          <div className="about-pipeline" aria-hidden="true">
-            <svg viewBox="0 0 1160 230" preserveAspectRatio="none">
-              <path
-                className="about-pipe-base"
-                d="M40 118 C 205 120 270 76 424 70 C 558 64 602 106 694 124 C 812 148 914 93 1120 84"
-              />
-              <path
-                className="about-pipe-active"
-                d="M40 118 C 205 120 270 76 424 70 C 558 64 602 106 694 124 C 812 148 914 93 1120 84"
-              />
-              <g className="about-pipe-marker">
-                <line x1="156" y1="134" x2="156" y2="202" />
-                <circle className="about-pipe-marker-ring" cx="156" cy="118" r="15" />
-                <circle className="about-pipe-marker-core" cx="156" cy="118" r="8" />
-              </g>
-              <g className="about-pipe-marker">
-                <line x1="575" y1="112" x2="575" y2="202" />
-                <circle className="about-pipe-marker-ring" cx="575" cy="96" r="15" />
-                <circle className="about-pipe-marker-core" cx="575" cy="96" r="8" />
-              </g>
-              <g className="about-pipe-marker">
-                <line x1="995" y1="102" x2="995" y2="202" />
-                <circle className="about-pipe-marker-ring" cx="995" cy="86" r="15" />
-                <circle className="about-pipe-marker-core" cx="995" cy="86" r="8" />
-              </g>
-            </svg>
-          </div>
-          <div className="about-steps">
-            <article className="reveal">
-              <h3>
-                <span>01</span> Signal unification
-              </h3>
-              <p>Build and unify systems, functions, and processes into a shared operating view.</p>
-            </article>
-            <article className="reveal">
-              <h3>
-                <span>02</span> Business meaning
-              </h3>
-              <p>Your data shaped around the way your business operates.</p>
-            </article>
-            <article className="reveal">
-              <h3>
-                <span>03</span> Accountable action
-              </h3>
-              <p>Move insights into accountable workflows, alerts, and outcomes.</p>
-            </article>
+          <div className="about-steps-wrap">
+            <div className="about-steps-signal" aria-hidden="true">
+              <svg viewBox="0 0 1120 160" preserveAspectRatio="none">
+                <path
+                  className="about-signal-base"
+                  d="M72 74 C 236 20, 344 122, 486 74 S 714 22, 876 70 S 1012 118, 1048 72"
+                />
+                <path
+                  className="about-signal-pulse"
+                  d="M72 74 C 236 20, 344 122, 486 74 S 714 22, 876 70 S 1012 118, 1048 72"
+                />
+              </svg>
+            </div>
+            <div className="about-steps">
+              <article className="reveal">
+                <h3>
+                  <span>01</span> Signal unification
+                </h3>
+                <p>Build and unify systems, functions, and processes into a shared operating view.</p>
+              </article>
+              <article className="reveal">
+                <h3>
+                  <span>02</span> Business meaning
+                </h3>
+                <p>Your data shaped around the way your business operates.</p>
+              </article>
+              <article className="reveal">
+                <h3>
+                  <span>03</span> Accountable action
+                </h3>
+                <p>Move insights into accountable workflows, alerts, and outcomes.</p>
+              </article>
+            </div>
           </div>
         </div>
       </section>
